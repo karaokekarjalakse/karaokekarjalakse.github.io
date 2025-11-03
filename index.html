@@ -5,126 +5,200 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Karaoke karjalakse</title>
 <style>
-  body {
-    background-color: #1b1b1b;
-    color: #fff;
-    font-family: "Trebuchet MS", Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
-
-  header {
-    padding: 2rem 1rem;
-  }
-
-  header h1 {
-    font-size: 2.5em;
-    margin-bottom: 0.3em;
-    color: #ffe066;
-  }
-
-  header p {
-    max-width: 700px;
-    margin: 0 auto;
-    color: #ddd;
-    line-height: 1.6em;
-  }
-
-  .video-item {
-    margin: 3rem auto;
-    max-width: 1024px;
-    width: 100%;
-    background-color: #222;
-    padding-bottom: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #000;
-  }
-
-  h2 {
-    color: #ffd43b;
-    margin-top: 1.2rem;
-  }
-
-  .divider {
-    display: block;
-    width: 100%;
-    height: auto;
-    margin-bottom: 0;
-    border: none;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
-
-  iframe {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    border: none;
-  }
-
-  .transponoinnit {
-    margin-top: 1rem;
-    line-height: 1.8em;
-  }
-  
-.song-info {
-  text-align: left;
-  max-width: 900px;
-  margin: 2rem auto 0 auto;
-  color: #ddd;
-  font-size: 1.05em;
-  line-height: 1.6em;
-}
-
-.song-info strong {
-  color: #ff3333;
-  font-size: 1.1em;
-}
-
-.song-info i {
-  color: #ccc;
-}
-
-.bird {
-  display: block;
-  margin: 2rem auto;
-  width: 90px;
-  height: auto;
-}
-
-.credits {
-  font-size: 0.85em;
-  color: #aaa;
-  margin-top: 2rem;
-  line-height: 1.5em;
+/* --- Perustyyli ja värit --- */
+body {
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
 
-  a:link.linkkibiisi,
-  a:visited.linkkibiisi {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 20px;
-    transition: all 0.2s ease-in-out;
+/* --- Otsikko ja intro --- */
+header {
+  padding: 2rem 1rem;
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.3em;
+  color: #ffe066;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+header p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #ddd;
+  line-height: 1.6em;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+/* --- Video-osio --- */
+.video-item {
+  margin: 3rem auto;
+  max-width: 1024px;
+  width: 100%;
+  background-color: #000;
+  border: none;
+}
+
+.divider {
+  display: block;
+  width: 100%;
+  max-width: 1024px;
+  height: auto;
+  margin: 0 auto;
+  border: none;
+}
+
+/* --- Upotus: responsiivinen video --- */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9-kuvasuhde */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* --- Transponointilinkit --- */
+.transponoinnit {
+  margin-top: 1rem;
+  line-height: 1.8em;
+  font-family: Bahnschrift, "Arial Black", Arial, sans-serif;
+}
+
+a:link.linkkibiisi,
+a:visited.linkkibiisi {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+a:hover.linkkibiisi,
+a:active.linkkibiisi {
+  color: #ff4444;
+  font-size: 24px;
+}
+
+/* --- Kappaleotsikko ja tekijät --- */
+.song-header {
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+  padding: 24px 16px;
+}
+
+.song-header .song-number {
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.song-header h1 {
+  margin: 0;
+  font-family: "Times New Roman", Georgia, serif;
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.song-header .artist {
+  font-family: Bahnschrift, "Arial Black", Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: #ff2020;
+  margin-top: 12px;
+  letter-spacing: 0.05em;
+}
+
+.song-header .credits-line {
+  font-family: Calibri, Tahoma, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 4px;
+  color: #fff;
+}
+
+/* --- Tekstiosuus --- */
+.song-body {
+  font-family: Cambria, Georgia, "Times New Roman", serif;
+  font-size: 20px;
+  color: #fff;
+  text-align: left;
+  margin: 16px auto;
+  padding: 0 14px;
+  max-width: 950px;
+  line-height: 1.6em;
+}
+
+/* --- Välikoriste ja lintu --- */
+.divider-symbol {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+.divider-symbol span {
+  padding: 2px 6px;
+  background: #fff;
+  color: #cc0000;
+  font-weight: bold;
+}
+
+.divider-symbol img {
+  display: block;
+  margin: 8px auto;
+  width: 60px;
+  height: auto;
+}
+
+/* --- Tekijät lopussa --- */
+.song-footer {
+  font-family: Calibri, Tahoma, Arial, sans-serif;
+  font-style: italic;
+  font-size: 14px;
+  color: #ddd;
+  text-align: left;
+  margin: 16px auto;
+  padding: 0 14px;
+  max-width: 950px;
+  line-height: 1.5em;
+}
+
+/* --- Responsiivisuus --- */
+@media (max-width: 768px) {
+  .song-body,
+  .song-footer {
+    padding: 0 20px;
+    font-size: 18px;
   }
 
-  a:hover.linkkibiisi,
-  a:active.linkkibiisi {
-    color: #ff4444;
-    font-size: 24px;
+  .song-header h1 {
+    font-size: 30px;
   }
-
-  footer {
-    margin-top: 3rem;
-    padding: 1rem;
-    font-size: 0.9em;
-    color: #aaa;
-    border-top: 1px solid #333;
-  }
+}
+footer {
+  margin-top: 3rem;
+  padding: 1rem;
+  font-size: 0.9em;
+  color: #aaa;
+  border-top: 1px solid #333;
+  font-family: Calibri, Tahoma, Arial, sans-serif;
+}
 </style>
 </head>
+
 <body>
 
 <header>
@@ -135,18 +209,23 @@
   </p>
 </header>
 
+<!-- ---------- Cibi-cibi linduine ---------- -->
 <div class="video-item" id="cibi-cibi">
   <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
 
-  <h2>Čibi-čibi linduine</h2>
+  <div class="song-header">
+    <div class="song-number">1.</div>
+    <h1>Čibi-čibi linduine</h1>
+    <div class="artist">SANTTU KARHU JA TALVISOVAT</div>
+    <div class="credits-line">säv. Santtu Karhu, san. trad. Santtu Karhu</div>
+  </div>
 
-  <iframe src="https://archive.org/embed/cibi-cibi"
-          frameborder="0"
-          allowfullscreen></iframe>
+  <div class="video-wrapper">
+    <iframe src="https://archive.org/embed/cibi-cibi" frameborder="0" allowfullscreen></iframe>
+  </div>
 
   <div class="transponoinnit">
-    <a class="linkkibiisi" href="#top"><strong>🔴 Takaisin lauluvalikkoon</strong></a>
-    <br/>
+    <a class="linkkibiisi" href="#top"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br/>
     🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
     <a class="linkkibiisi" href="https://archive.org/details/cibi-cibi/Cibi-Cibi-5.m4v"><strong>-5</strong></a> /
     <a class="linkkibiisi" href="https://archive.org/details/cibi-cibi/Cibi-Cibi-3.m4v"><strong>-3</strong></a> /
@@ -157,33 +236,29 @@
     &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
   </div>
 
-  <div class="song-info">
-    <p><strong>SANTTU KARHU JA TALVISOVAT</strong><br>
-    säv. Santtu Karhu, san. trad. Santtu Karhu</p>
+  <div class="song-body">
+Čibi-čibi linduine on karjalainen luonto- ja eläinaiheinen lastenlaulu, jonka loppua Santtu Karhu on jonkin verran muokannut.
+Näin viaton lastenlaulu saa Santulle tyypillisen hävyttömän lisävärityksen. Laulun riettaus on kuitenkin hyvin viitteellistä
+ja sitä voidaan pitää kauniina ja kaikille sopivana. Laulun lähdettä Karhu ei muista, hän on vaan kuullut sen jossain.
+Konserteissa hän on esitellyt laulun usein niin, että ”nyt pilaamme yhden karjalaisen kansanlaulun”.
 
-    <p>
-    Čibi-čibi linduine on karjalainen luonto- ja eläinaiheinen lastenlaulu, jonka loppua Santtu Karhu on jonkin verran muokannut.
-    Näin viaton lastenlaulu saa Santulle tyypillisen hävyttömän lisävärityksen. Laulun riettaus on kuitenkin hyvin viitteellistä
-    ja sitä voidaan pitää kauniina ja kaikille sopivana. Laulun lähdettä Karhu ei muista, hän on vaan kuullut sen jossain.
-    Konserteissa hän on esitellyt laulun usein niin, että ”nyt pilaamme yhden karjalaisen kansanlaulun”.
-    </p>
+    <div class="divider-symbol">
+      <span>◈</span><br>
+      <img src="uhtuan-lintu_punainen_PNG_V3.png" alt="Lintuornamentti">
+    </div>
 
-    <img src="uhtuan-lintu_punainen_PNG_V3.png" alt="Lintuornamentti" class="bird">
-
-    <p>
-    Čibi-čibi linduine on karjalaine lapsienpajo, kuduas pajatetah luondoh da žiivattoih näh, ga kuduan loppuu Santtu Karhu on vähäzel kohendelluh.
-    Samal aigua vijatoi lapsienpajo suau šittaizenčyksen, kui tavan mugah olettelougi Santtu Karhul. Pajon ilviettömys on vaigu ylen hienoine
-    da pajuo voibi pidiä čomannu da se pädöy kaikile. Karhu ei musta, kuspäi on löydänyh pajon, häi vaigu on kuulluh sen kustahto.
-    Konsertois häi on puaksuh ezitellyh pajon nenga: “nygöi myö rikommo yhten karjalazen rahvahan pajon”.
-    </p>
-
-    <p class="credits">
-      Karaokesäestys Santtu Karhu | Kuvitus Jussi Sinkkonen Kuvaus Jussi Sinkkonen, Joonas Gavrilov |
-      Leikkaus ja animointi Jussi Sinkkonen Kuvaleikkeet “Venehjärveläinen runonlaulaja Vihtoora Lesonen” / Inha, I. K. /
-      Historian kuvakokoelma / Museovirasto Otteita Häidenvietto Karjalan runomailla -elokuvasta / Kalevala-seura “Thunderstorm” /
-      The Element / pexels.com
-    </p>
+Čibi-čibi linduine on karjalaine lapsienpajo, kuduas pajatetah luondoh da žiivattoih näh, ga kuduan loppuu Santtu Karhu on vähäzel kohendelluh.
+Samal aigua vijatoi lapsienpajo suau šittaizenčyksen, kui tavan mugah olettelougi Santtu Karhul. Pajon ilviettömys on vaigu ylen hienoine
+da pajuo voibi pidiä čomannu da se pädöy kaikile. Karhu ei musta, kuspäi on löydänyh pajon, häi vaigu on kuulluh sen kustahto.
+Konsertois häi on puaksuh ezitellyh pajon nenga: “nygöi myö rikommo yhten karjalazen rahvahan pajon”.
   </div>
+
+  <p class="song-footer">
+Karaokesäestys Santtu Karhu | Kuvitus Jussi Sinkkonen Kuvaus Jussi Sinkkonen, Joonas Gavrilov |
+Leikkaus ja animointi Jussi Sinkkonen Kuvaleikkeet "Venehjärveläinen runonlaulaja Vihtoora Lesonen" / Inha, I. K. /
+Historian kuvakokoelma / Museovirasto Otteita Häidenvietto Karjalan runomailla -elokuvasta /
+Kalevala-seura “Thunderstorm” / The Element / pexels.com
+  </p>
 
   <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
 </div>
