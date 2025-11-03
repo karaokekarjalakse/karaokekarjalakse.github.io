@@ -1,75 +1,134 @@
 <!DOCTYPE html>
 <html lang="fi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karaoke Karjalakse - Uudelleenjulkaisu</title>
-    <style>
-        body { 
-            font-family: sans-serif; 
-            max-width: 900px; 
-            margin: 0 auto; 
-            padding: 20px; 
-            background-color: #f4f4f4; 
-            color: #333; 
-        }
-        header { 
-            text-align: center; 
-            margin-bottom: 40px; 
-        }
-        h1 { 
-            color: #880000; 
-        }
-        .video-item { 
-            background-color: white; 
-            padding: 20px; 
-            margin-bottom: 30px; 
-            border-radius: 8px; 
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
-        }
-        .video-item h2 { 
-            color: #007bff; 
-            margin-top: 0; 
-        }
-        .video-container { 
-            text-align: center; 
-            margin-top: 15px; 
-        }
-        /* Korjaa upotetun soittimen koon ongelma, jos se olisi piilossa */
-        .video-container iframe {
-            max-width: 100%;
-            height: 480px; /* Varmistaa, että korkeus on riittävä */
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karaoke karjalakse</title>
+<style>
+  body {
+    background-color: #1b1b1b;
+    color: #fff;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  header {
+    padding: 2rem 1rem;
+  }
+
+  header h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.3em;
+    color: #ffe066;
+  }
+
+  header p {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #ddd;
+    line-height: 1.6em;
+  }
+
+  .video-item {
+    margin: 3rem auto;
+    max-width: 1024px;
+    width: 100%;
+    background-color: #222;
+    padding-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+  }
+
+  h2 {
+    color: #ffd43b;
+    margin-top: 1.2rem;
+  }
+
+  .divider {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 0;
+    border: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border: none;
+  }
+
+  .transponoinnit {
+    margin-top: 1rem;
+    line-height: 1.8em;
+  }
+
+  a:link.linkkibiisi,
+  a:visited.linkkibiisi {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    transition: all 0.2s ease-in-out;
+  }
+
+  a:hover.linkkibiisi,
+  a:active.linkkibiisi {
+    color: #ff4444;
+    font-size: 24px;
+  }
+
+  footer {
+    margin-top: 3rem;
+    padding: 1rem;
+    font-size: 0.9em;
+    color: #aaa;
+    border-top: 1px solid #333;
+  }
+</style>
 </head>
 <body>
-    <header>
-        <h1>Karaoketiähti Olet Sinä - Karaoke Karjalakse</h1>
-        <p>Karjalankielisten karaokevideoiden kokoelma. Tervetuloa laulamaan!</p>
-    </header>
 
-    <div class="video-item">
-        <h2>1. Cibi Cibi (Pieni pieni)</h2>
-        <p>Esittelyteksti: Tähän kohtaan tulee alkuperäinen kuvaus suomeksi ja karjalaksi, laulun taustat ja tekijät.</p>
-        
-        <div class="video-container">
-            <iframe src="https://archive.org/embed/cibi-cibi" width="640" height="480" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
-        </div>
-    </div>
+<header>
+  <h1>Karaoke karjalakse</h1>
+  <p>
+    Tältä sivustolta löydät "Karaoketiähti olet sinä!" -karaoketallenteen kaikki 23 karaokevideota 
+    ja runsaasti transponoituja videoversioita eri sävelkorkeuksilta.
+  </p>
+</header>
 
-    <div class="video-item">
-        <h2>2. Seuraavan Kappaleen Otsikko</h2>
-        <p>Esittelyteksti: Tähän tulee seuraavan kappaleen esittelyteksti.</p>
-        
-        <div class="video-container">
-            <iframe src="https://archive.org/embed/SEURAAVA-VIDEON-TUNNISTE" width="640" height="480" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
-        </div>
-    </div>
-    
-    <footer>
-        <hr>
-        <p style="text-align: center; font-size: small;">© Karaoke Karjalakse. Sisältö on lisensoitu [LISÄÄ CC-LISENSSI TÄHÄN]. Kiitokset: [LISÄÄ RAHOITTAJAT JA TEKIJÄT VANHASTA JULKAISUSTA].</p>
-    </footer>
+<div class="video-item" id="cibi-cibi">
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+
+  <h2>Cibi Cibi</h2>
+
+  <iframe src="https://archive.org/embed/cibi-cibi"
+          frameborder="0"
+          allowfullscreen></iframe>
+
+  <div class="transponoinnit">
+    <a class="linkkibiisi" href="#top"><strong>🔴 Takaisin lauluvalikkoon</strong></a>
+    <br/>
+    🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
+    <a class="linkkibiisi" href="https://archive.org/details/cibi-cibi/Cibi-Cibi-5.m4v"><strong>-5</strong></a> /
+    <a class="linkkibiisi" href="https://archive.org/details/cibi-cibi/Cibi-Cibi-3.m4v"><strong>-3</strong></a> /
+    <a class="linkkibiisi" href="https://archive.org/details/cibi-cibi/Cibi-Cibi-2.m4v"><strong>-2</strong></a> /
+    <a class="linkkibiisi" href="https://archive.org/details/cibi-cibi/Cibi-Cibi%2B-0.m4v"><strong>0</strong></a> /
+    <a class="linkkibiisi" href="https://archive.org/details/cibi-cibi/Cibi-Cibi%2B2.m4v"><strong>+2</strong></a> /
+    <a class="linkkibiisi" href="https://archive.org/details/cibi-cibi/Cibi-Cibi%2B3.m4v"><strong>+3</strong></a>
+    &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
+  </div>
+</div>
+
+<footer>
+  © Karaoke Karjalakse — Creative Commons BY-NC-SA 4.0 lisenssillä.  
+  Koodi julkaistu MIT-lisenssillä GitHubissa.
+</footer>
 
 </body>
 </html>
