@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Karaoke karjalakse</title>
 <style>
-/* --- Perustyyli ja värit --- */
+/* --- Perusrunko --- */
 body {
   background-color: #000;
   color: #fff;
@@ -14,25 +14,150 @@ body {
   text-align: center;
 }
 
-/* --- Otsikko ja intro --- */
-header {
+/* --- Header: logo + otsikko --- */
+.site-header {
   padding: 2rem 1rem;
+  background-color: #000;
 }
 
-header h1 {
-  font-size: 2.5em;
-  margin-bottom: 0.3em;
-  color: #ffe066;
-  font-family: "Trebuchet MS", Arial, sans-serif;
+.logo-wrap {
+  max-width: 600px;
+  margin: 0 auto 1.5rem auto;
 }
 
-header p {
-  max-width: 700px;
+.project-logo {
+  width: 100%;
+  height: auto;
+}
+
+/* punainen pääotsikko */
+.site-title {
+  font-family: Bahnschrift, "Arial Black", Arial, sans-serif;
+  font-size: 44px;
+  font-weight: 900;
+  color: #ff2020;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Jakoviivat --- */
+.intro-separator {
+  height: 6px;
+  width: 100%;
+  margin: 0;
+}
+
+.intro-blue { background-color: #9ad8ff; }
+.intro-green { background-color: #00aa4f; }
+
+/* --- Johdantopalkki --- */
+.intro-band {
+  background-color: #0b86aa;
+  padding: 2rem 1rem 2.5rem 1rem;
+}
+
+/* --- Johdantoteksti --- */
+.intro-text {
+  max-width: 820px;
   margin: 0 auto;
-  color: #ddd;
-  line-height: 1.6em;
-  font-family: "Trebuchet MS", Arial, sans-serif;
+  text-align: center;
+  font-family: "Bahnschrift", "Arial Black", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.8em;
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.55);
 }
+.intro-text p { margin: 0 0 1.2rem 0; }
+
+.intro-symbol {
+  font-size: 26px;
+  color: #004c70;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  margin: 0.6rem 0 1rem 0;
+}
+
+.intro-production {
+  font-family: Calibri, Tahoma, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #aee6ff;
+  margin-top: 1.5rem;
+}
+
+/* --- Rahoittajat / logot --- */
+.supporters {
+  background-color: #fff;
+  color: #000;
+  padding: 1.8rem 1rem 2.2rem 1rem;
+}
+.supporters-inner {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+.supporters-logos img {
+  max-width: 100%;
+  height: auto;
+}
+.supporters-text {
+  font-family: Calibri, Tahoma, Arial, sans-serif;
+  font-size: 16px;
+  margin-top: 1rem;
+}
+
+/* --- Lauluvalikko, kahden palstan grid --- */
+.song-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1000px;
+
+  display: grid;
+  grid-template-columns: 1fr;       /* oletuksena yksi palsta */
+  gap: 1.5rem 3rem;                 /* rivien ja palstojen väli */
+  justify-content: center;
+}
+
+.song-nav li {
+  text-align: left;
+}
+
+/* numero + biisin nimi (linkki) */
+.song-nav-title {
+  display: inline-block;
+  font-family: "Times New Roman", Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  line-height: 1.4em;
+}
+.song-nav-title:hover { color: #ff4444; }
+
+.song-nav-number {
+  font-weight: 700;
+  margin-right: 0.25em;
+}
+
+/* punainen esittäjä/originaali */
+.song-nav-artist {
+  font-family: Bahnschrift, "Arial Black", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  color: #ff2020;
+  margin-left: 1.8rem;
+}
+
+/* pienet sävel-/sanatiedot */
+.song-nav-meta {
+  font-family: Calibri, Tahoma, Arial, sans-serif;
+  font-size: 13px;
+  color: #ddd;
+  margin-left: 1.8rem;
+}
+
 
 /* --- Video-osio --- */
 .video-item {
@@ -52,15 +177,14 @@ header p {
   border: none;
 }
 
-/* --- Upotus: responsiivinen video --- */
+/* responsiivinen video */
 .video-wrapper {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* 16:9-kuvasuhde */
+  padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
 }
-
 .video-wrapper iframe {
   position: absolute;
   top: 0;
@@ -70,16 +194,16 @@ header p {
   border: none;
 }
 
-/* --- Transponointilinkit --- */
+/* Transponoinnit-rivi */
 .transponoinnit {
   margin-top: 1rem;
   line-height: 1.8em;
   font-family: Bahnschrift, "Arial Black", Arial, sans-serif;
-  border-bottom: 1px solid #fff; /* ohut viiva */
-  padding-bottom: 0.4rem;        /* pieni väli ennen viivaa */
-  margin-bottom: 1.2rem;         /* sopiva tila ennen otsikkoa */
+  border-bottom: 1px solid #fff;
+  padding-bottom: 0.4rem;
+  margin-bottom: 1.2rem;
 }
-  
+
 a:link.linkkibiisi,
 a:visited.linkkibiisi {
   color: #fff;
@@ -88,26 +212,23 @@ a:visited.linkkibiisi {
   font-size: 20px;
   transition: all 0.2s ease-in-out;
 }
-
 a:hover.linkkibiisi,
 a:active.linkkibiisi {
   color: #ff4444;
   font-size: 24px;
 }
 
-/* --- Kappaleotsikko ja tekijät --- */
+/* Kappaleotsikko ja tekijät */
 .song-header {
   text-align: center;
   background-color: #000;
   color: #fff;
   padding: 24px 16px;
 }
-
 .song-header .song-number {
   font-size: 12px;
   margin-bottom: 6px;
 }
-
 .song-header h1 {
   margin: 0;
   font-family: "Times New Roman", Georgia, serif;
@@ -116,7 +237,6 @@ a:active.linkkibiisi {
   line-height: 1.1;
   color: #fff;
 }
-
 .song-header .artist {
   font-family: Bahnschrift, "Arial Black", Arial, sans-serif;
   font-size: 22px;
@@ -125,7 +245,6 @@ a:active.linkkibiisi {
   margin-top: 12px;
   letter-spacing: 0.05em;
 }
-
 .song-header .credits-line {
   font-family: Calibri, Tahoma, Arial, sans-serif;
   font-size: 14px;
@@ -134,7 +253,7 @@ a:active.linkkibiisi {
   color: #fff;
 }
 
-/* --- Tekstiosuus --- */
+/* Tekstit kappaleessa */
 .song-body {
   font-family: Cambria, Georgia, "Times New Roman", serif;
   font-size: 20px;
@@ -146,27 +265,18 @@ a:active.linkkibiisi {
   line-height: 1.6em;
 }
 
-/* --- Välikoriste ja lintu --- */
 .divider-symbol {
   text-align: center;
   margin: 24px 0 12px 0;
 }
-
-.divider-symbol span {
-  padding: 2px 6px;
-  background: #fff;
-  color: #cc0000;
-  font-weight: bold;
-}
-
 .divider-symbol img {
   display: block;
-  margin: 8px auto;
+  margin: 0 auto;
   width: 60px;
   height: auto;
 }
 
-/* --- Tekijät lopussa --- */
+/* Tekijät kappaleen lopussa */
 .song-footer {
   font-family: Calibri, Tahoma, Arial, sans-serif;
   font-style: italic;
@@ -179,18 +289,7 @@ a:active.linkkibiisi {
   line-height: 1.5em;
 }
 
-/* --- Responsiivisuus --- */
-@media (max-width: 768px) {
-  .song-body,
-  .song-footer {
-    padding: 0 20px;
-    font-size: 18px;
-  }
-
-  .song-header h1 {
-    font-size: 30px;
-  }
-}
+/* Footer */
 footer {
   margin-top: 3rem;
   padding: 1rem;
@@ -199,28 +298,285 @@ footer {
   border-top: 1px solid #333;
   font-family: Calibri, Tahoma, Arial, sans-serif;
 }
+
+/* --- Mediaqueries --- */
+
+/* yli 900 px leveillä näytöillä: kaksi palstaa */
+@media (min-width: 900px) {
+  .song-nav ul {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 </style>
 </head>
-
 <body>
 
-<header>
-  <h1>Karaoke karjalakse</h1>
-  <p>
-    Tältä sivustolta löydät "Karaoketiähti olet sinä!" -karaoketallenteen kaikki 23 karaokevideota 
-    ja runsaasti transponoituja videoversioita eri sävelkorkeuksilta.
-  </p>
+
+<!-- ---------- HEADER: LOGO + PUNAINEN NIMI ---------- -->
+<header class="site-header" id="top">
+  <div class="logo-wrap">
+    <!-- VAIHDA src oman logotiedostosi nimeen -->
+    <img src="karaoketiahti_logo.png"
+         alt="KARAOKETIÄHTI OLET SINÄ! – Karaoke karjalakse"
+         class="project-logo">
+  </div>
+
 </header>
 
-<!-- ---------- Cibi-cibi linduine ---------- -->
+<!-- ohut sininen viiva koko sivun leveydeltä -->
+<div class="intro-separator intro-blue"></div>
+
+<!-- ---------- SININEN JOHDANTOPALKKI ---------- -->
+<section class="intro-band">
+  <div class="intro-text">
+    <p class="intro-karelian">
+      Ihastuta sinun kuulijua karjalan kielel. Täs on karjalankielizen iskumeloudiin uuzi tulendu,
+      muailman ezmäine karjalankieline karaoketallendeh. Keral karjalankielisty folkkii, rokkii dai
+      kiännösiskelmii monil eri vuozikymmenil. Eigo haittua ku et jo maltanne kieldy, karaoke panou
+      sanat sinun suuh. Tallendehes on uuttu da vahnua pajuo kaikil karjalan kielen murdehil.
+    </p>
+
+    <div class="intro-symbol">◈</div>
+
+    <p class="intro-finnish">
+      Hurmaa kuulijasi karjalan kielellä. Tässä on karjalankielisen iskusävelmän uusi tuleminen,
+      maailman ensimmäinen karjalankielinen karaoketallenne. Mukana karjalankielistä folkkia,
+      rokkia ja käännösiskelmää useilta eri vuosikymmeniltä. Eikä haittaa vaikkei kieli olisi
+      entuudestaan tuttu, karaoke laittaa sanat suuhusi. Tallenteella on uusia ja vanhoja lauluja
+      kaikilla karjalan kielen murteilla.
+    </p>
+
+    <p class="intro-production">
+      Tuotanto: Karelia Folk ry / Parempi Pajot 20–21
+    </p>
+  </div>
+</section>
+
+<!-- ---------- RAHOITTAJAT VALKOISELLA TAUSTALLA ---------- -->
+<section class="supporters">
+  <div class="supporters-inner">
+    <div class="supporters-logos">
+      <!-- VAIHDA src rahoittajien logot sisältävään kuvaan -->
+      <img src="rahoittajat_logot.png" alt="Rahoittajien logot">
+    </div>
+    <p class="supporters-text">
+      Julkaisua ja uudelleenjulkaisua tukivat lisäksi:
+      Karjalan kielen elvytyshanke, humanistinen osasto, Itä-Suomen yliopisto.
+    </p>
+  </div>
+</section>
+
+<!-- vihreä viiva heti valkoisen logopalkin jälkeen -->
+<div class="intro-separator intro-green"></div>
+
+<nav id="lauluvalikko" class="song-nav">
+    <h1 class="site-title">KARAOKE KARJALAKSE</h1>
+  </br></br>
+  <ul>
+    <li>
+      <a href="#cibi-cibi" class="song-nav-title">
+        <span class="song-nav-number">1.</span>Čibi-čibi linduine
+      </a>
+      <div class="song-nav-artist">SANTTU KARHU JA TALVISOVAT</div>
+      <div class="song-nav-meta">säv. Santtu Karhu, san. trad. Santtu Karhu</div>
+    </li>
+
+    <li>
+      <a href="#cuuruu" class="song-nav-title">
+        <span class="song-nav-number">2.</span>Čuuruu
+      </a>
+      <div class="song-nav-artist">SATTUMA</div>
+      <div class="song-nav-meta">säv. &amp; san. Arto Rinne</div>
+    </li>
+
+    <li>
+      <a href="#elamani-kokemuksie" class="song-nav-title">
+        <span class="song-nav-number">3.</span>Elämäni kokemuksie
+      </a>
+      <div class="song-nav-artist">KALEVALAN KANSANLAULURYHMÄ</div>
+      <div class="song-nav-meta">säv. &amp; san. Valentina Saburova</div>
+    </li>
+
+    <li>
+      <a href="#evakon-pajo" class="song-nav-title">
+        <span class="song-nav-number">4.</span>Evakon pajo
+      </a>
+      <div class="song-nav-artist">(Evakon laulu - säestys KarjalaBrihat)</div>
+      <div class="song-nav-meta">säv. &amp; san. Veikko Lavi, karj. san. Eero Mäkkeli</div>
+    </li>
+
+    <li>
+      <a href="#hyllatty-ei-ole-hullattu" class="song-nav-title">
+        <span class="song-nav-number">5.</span> Hyllätty ei ole hullattu
+      </a>
+      <div class="song-nav-artist">SANTTU KARHU JA TALVISOVAT</div>
+      <div class="song-nav-meta">säv. &amp; san. Santtu Karhu</div>
+    </li>
+
+    <li>
+      <a href="#hyrzyla" class="song-nav-title">
+        <span class="song-nav-number">6.</span> Hyrzylä
+      </a>
+      <div class="song-nav-artist">LOIMOLAN VOIMA</div>
+      <div class="song-nav-meta">säv. Mika Saatsi, san. Niko Saatsi</div>
+    </li>
+
+    <li>
+      <a href="#kaijasjarves-aija-kalua" class="song-nav-title">
+        <span class="song-nav-number">7.</span> Kaijasjärves äijä kalua
+      </a>
+      <div class="song-nav-artist">(säestys KarjalaBrihat)</div>
+      <!-- ei erillistä säv./san.-riviä lähdetekstissä -->
+    </li>
+
+    <li>
+      <a href="#karjalan-kumbuzil" class="song-nav-title">
+        <span class="song-nav-number">8.</span> Karjalan kumbuzil
+      </a>
+      <div class="song-nav-artist">(säestys Hannu ja Iivo Brelo)</div>
+      <div class="song-nav-meta">säv. trad., karj. san. Iivo Härkönen</div>
+    </li>
+
+    <li>
+      <a href="#karjalani-rahvas" class="song-nav-title">
+        <span class="song-nav-number">9.</span> Karjalani rahvas
+      </a>
+      <div class="song-nav-artist">(säestys Hannu Brelo)</div>
+      <div class="song-nav-meta">säv. &amp; san. Vanja Tallas</div>
+    </li>
+
+    <li>
+      <a href="#kylyni" class="song-nav-title">
+        <span class="song-nav-number">10.</span> Kylyni
+      </a>
+      <div class="song-nav-artist">KALEVALAN KANSANLAULURYHMÄ</div>
+      <div class="song-nav-meta">säv. &amp; san. Valentina Saburova</div>
+    </li>
+
+    <li>
+      <a href="#kyla-vuotti-uutta-kuuta" class="song-nav-title">
+        <span class="song-nav-number">11.</span> Kylä vuotti uutta kuuta
+      </a>
+      <div class="song-nav-artist">(säestys Rälläkkä)</div>
+      <!-- ei erillistä säv./san.-riviä lähdetekstissä -->
+    </li>
+
+    <li>
+      <a href="#maman-kevatpajoine" class="song-nav-title">
+        <span class="song-nav-number">12.</span> Maman kevätpajoine
+      </a>
+      <div class="song-nav-artist">SATTUMA</div>
+      <div class="song-nav-meta">säv. Arto Rinne, san. Zinaida Dubinina</div>
+    </li>
+
+    <li>
+      <a href="#metrolla-buabon-luo" class="song-nav-title">
+        <span class="song-nav-number">13.</span> Metrolla buabon luo
+      </a>
+      <div class="song-nav-artist">KRISTIINA OLANTO &amp; LEKKUJAD</div>
+      <div class="song-nav-meta">säv. Soili Perkiö, san. Hannele Huovi, karj. san. Katerina Paalamo</div>
+    </li>
+
+    <li>
+      <a href="#mina-mustan" class="song-nav-title">
+        <span class="song-nav-number">14.</span> Minä mustan
+      </a>
+      <div class="song-nav-artist">(säestys KarjalaBrihat)</div>
+      <div class="song-nav-meta">säv. &amp; san. Aleksandr Saveljev</div>
+    </li>
+
+    <li>
+      <a href="#oman-muan-tuli" class="song-nav-title">
+        <span class="song-nav-number">15.</span> Oman muan tuli
+      </a>
+      <div class="song-nav-artist">FOLKSWAGEN</div>
+      <div class="song-nav-meta">säv. &amp; san. Olli Nannula</div>
+    </li>
+
+    <li>
+      <a href="#petroskoi" class="song-nav-title">
+        <span class="song-nav-number">16.</span> Petroskoi
+      </a>
+      <div class="song-nav-artist">MYLLÄRIT</div>
+      <div class="song-nav-meta">säv.&amp; san. Iivan L’jovkin</div>
+    </li>
+
+    <li>
+      <a href="#regipajo" class="song-nav-title">
+        <span class="song-nav-number">17.</span> Regipajo
+      </a>
+      <div class="song-nav-artist">SANTTU KARHU JA TALVISOVAT</div>
+      <div class="song-nav-meta">säv. &amp; san. Santtu Karhu</div>
+    </li>
+
+    <li>
+      <a href="#ruskie-neicyt" class="song-nav-title">
+        <span class="song-nav-number">18.</span> Ruskie neičyt
+      </a>
+      <div class="song-nav-artist">(säestys KarjalaBrihat)</div>
+      <!-- ei erillistä säv./san.-riviä lähdetekstissä -->
+    </li>
+
+    <li>
+      <a href="#soutelemma-joutelemma" class="song-nav-title">
+        <span class="song-nav-number">19.</span> Soutelemma joutelemma
+      </a>
+      <div class="song-nav-artist">SATTUMA</div>
+      <div class="song-nav-meta">säv. Arto Rinne, san. trad. / Arto Rinne</div>
+    </li>
+
+    <li>
+      <a href="#suvi-karjal" class="song-nav-title">
+        <span class="song-nav-number">20.</span> Suvi-Karjal
+      </a>
+      <div class="song-nav-artist">(Pohjois-Karjala - säestys Rälläkkä)</div>
+      <div class="song-nav-meta">säv. &amp; san. Gösta Sundqvist, karj. kiel. sanat Timoi Munne &amp; Santtu Karhu</div>
+    </li>
+
+    <li>
+      <a href="#tietoi-karjalas" class="song-nav-title">
+        <span class="song-nav-number">21.</span> Tietoi karjalas
+      </a>
+      <div class="song-nav-artist">(Heili Karjalasta - säestys KarjalaBrihat)</div>
+      <div class="song-nav-meta">säv. Georg Malmstén, san. R.R. Ryynänen, karj. san. Eero Mäkkeli</div>
+    </li>
+
+    <li>
+      <a href="#urai-matkuniekka" class="song-nav-title">
+        <span class="song-nav-number">22.</span> Urai matkuniekka
+      </a>
+      <div class="song-nav-artist">HANNU BRELO</div>
+      <div class="song-nav-meta">säv. &amp; san. Hannu Brelo</div>
+    </li>
+
+    <li>
+      <a href="#valgei-vallys" class="song-nav-title">
+        <span class="song-nav-number">23.</span> Valgei vällys
+      </a>
+      <div class="song-nav-artist">SANTTU KARHU JA TALVISOVAT</div>
+      <div class="song-nav-meta">säv. &amp; san. Santtu Karhu</div>
+    </li>
+  </ul>
+</nav>
+
+
+<!-- ---------- 1. Čibi-čibi linduine ---------- -->
 <div class="video-item" id="cibi-cibi">
   <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+
+  <div class="song-header">
+    <div class="song-number">1.</div>
+    <h1>Čibi-čibi linduine</h1>
+    <div class="artist">SANTTU KARHU JA TALVISOVAT</div>
+    <div class="credits-line">säv. Santtu Karhu, san. trad. Santtu Karhu</div>
+  </div>
+
   <div class="video-wrapper">
     <iframe src="https://archive.org/embed/cibi-cibi" frameborder="0" allowfullscreen></iframe>
   </div>
 
   <div class="transponoinnit">
-    <a class="linkkibiisi" href="#top"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br/>
+    <a class="linkkibiisi" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br/>
     🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
     <a class="linkkibiisi" href="https://archive.org/details/cibi-cibi/Cibi-Cibi-5.m4v"><strong>-5</strong></a> /
     <a class="linkkibiisi" href="https://archive.org/details/cibi-cibi/Cibi-Cibi-3.m4v"><strong>-3</strong></a> /
@@ -229,15 +585,6 @@ footer {
     <a class="linkkibiisi" href="https://archive.org/details/cibi-cibi/Cibi-Cibi%2B2.m4v"><strong>+2</strong></a> /
     <a class="linkkibiisi" href="https://archive.org/details/cibi-cibi/Cibi-Cibi%2B3.m4v"><strong>+3</strong></a>
     &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
-  </div>
-
-
-  
-  <div class="song-header">
-    <div class="song-number">1.</div>
-    <h1>Čibi-čibi linduine</h1>
-    <div class="artist">SANTTU KARHU JA TALVISOVAT</div>
-    <div class="credits-line">säv. Santtu Karhu, san. trad. Santtu Karhu</div>
   </div>
 
   <div class="song-body">
