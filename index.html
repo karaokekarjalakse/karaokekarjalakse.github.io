@@ -109,7 +109,7 @@ body {
 
 /* --- Lauluvalikko, kahden palstan grid --- */
 .song-nav {
-  padding: 0 clamp(1rem, 3vw, 2rem);
+  padding: 2rem clamp(1rem, 3vw, 2rem) 0 clamp(1rem, 3vw, 2rem);
   box-sizing: border-box;
 }
 
@@ -119,8 +119,8 @@ body {
   margin: 0 auto;
   max-width: 1000px;
   display: grid;
-  grid-template-columns: 1fr;       /* oletuksena yksi palsta */
-  gap: 1.5rem 3rem;                 /* rivien ja palstojen väli */
+  grid-template-columns: 1fr;
+  gap: 1.5rem 3rem;
   justify-content: center;
 }
 
@@ -128,7 +128,6 @@ body {
   text-align: left;
 }
 
-/* numero + biisin nimi (linkki) */
 .song-nav-title {
   display: inline-block;
   font-family: "Times New Roman", Georgia, serif;
@@ -145,7 +144,6 @@ body {
   margin-right: 0.25em;
 }
 
-/* punainen esittäjä/originaali */
 .song-nav-artist {
   font-family: Bahnschrift, "Arial Black", Arial, sans-serif;
   font-size: 14px;
@@ -154,7 +152,6 @@ body {
   margin-left: 1.8rem;
 }
 
-/* pienet sävel-/sanatiedot */
 .song-nav-meta {
   font-family: Calibri, Tahoma, Arial, sans-serif;
   font-size: 13px;
@@ -180,7 +177,6 @@ body {
   border: none;
 }
 
-/* responsiivinen video */
 .video-wrapper {
   position: relative;
   width: 100%;
@@ -189,7 +185,6 @@ body {
   overflow: hidden;
   background-color: #000;
 }
-.video-wrapper iframe,
 .video-wrapper video {
   position: absolute;
   top: 0;
@@ -197,8 +192,6 @@ body {
   width: 100%;
   height: 100%;
   border: none;
-}
-.video-wrapper video {
   display: block;
   background-color: #000;
 }
@@ -209,9 +202,14 @@ body {
   line-height: 1.8em;
   font-family: Bahnschrift, "Arial Black", Arial, sans-serif;
   border-bottom: 1px solid #fff;
-  padding: 0  clamp(1rem, 3vw, 2rem) 0.4rem clamp(1rem, 3vw, 2rem);
+  padding: 0 clamp(1rem, 3vw, 2rem) 0.6rem clamp(1rem, 3vw, 2rem);
   margin-bottom: 1.2rem;
   box-sizing: border-box;
+}
+
+.back-to-menu {
+  display: inline-block;
+  margin-bottom: 0.95rem;
 }
 
 a:link.linkkibiisi,
@@ -289,7 +287,8 @@ a:active.linkkibiisi {
 }
 
 /* Tekijät kappaleen lopussa */
-.song-footer {
+.song-footer,
+.credits-section {
   font-family: Calibri, Tahoma, Arial, sans-serif;
   font-style: italic;
   font-size: 14px;
@@ -300,6 +299,11 @@ a:active.linkkibiisi {
   max-width: 950px;
   line-height: 1.5em;
   box-sizing: border-box;
+}
+
+.credits-section {
+  font-style: normal;
+  text-align: center;
 }
 
 .archive-link {
@@ -347,15 +351,6 @@ a:active.linkkibiisi {
   color: #fff;
 }
 
-.placeholder-anchor {
-  position: relative;
-  top: -8px;
-  display: block;
-  height: 1px;
-  visibility: hidden;
-}
-
-/* Footer */
 footer {
   margin-top: 3rem;
   padding: 1rem;
@@ -366,8 +361,6 @@ footer {
 }
 
 /* --- Mediaqueries --- */
-
-/* yli 900 px leveillä näytöillä: kaksi palstaa */
 @media (min-width: 900px) {
   .song-nav ul {
     grid-template-columns: 1fr 1fr;
@@ -377,39 +370,44 @@ footer {
 </head>
 <body>
 
-
-<!-- ---------- HEADER: LOGO + PUNAINEN NIMI ---------- --><header class="site-header" id="top">
+<header class="site-header" id="top">
   <div class="logo-wrap">
-    <!-- VAIHDA src oman logotiedostosi nimeen -->
     <img src="karaoketiahti_logo.png"
          alt="KARAOKETIÄHTI OLET SINÄ! – Karaoke karjalakse"
          class="project-logo">
-  </div></header><!-- ohut sininen viiva koko sivun leveydeltä --><div class="intro-separator intro-blue"></div><!-- ---------- SININEN JOHDANTOPALKKI ---------- --><section class="intro-band">
+  </div>
+</header>
+
+<div class="intro-separator intro-blue"></div>
+
+<section class="intro-band">
   <div class="intro-text">
     <p class="intro-karelian">
       Ihastuta sinun kuulijua karjalan kielel. Täs on karjalankielizen iskumeloudiin uuzi tulendu,
       muailman ezmäine karjalankieline karaoketallendeh. Keral karjalankielisty folkkii, rokkii dai
       kiännösiskelmii monil eri vuozikymmenil. Eigo haittua ku et jo maltanne kieldy, karaoke panou
       sanat sinun suuh. Tallendehes on uuttu da vahnua pajuo kaikil karjalan kielen murdehil.
-    </p><div class="intro-symbol">◈</div>
+    </p>
 
-<p class="intro-finnish">
-  Hurmaa kuulijasi karjalan kielellä. Tässä on karjalankielisen iskusävelmän uusi tuleminen,
-  maailman ensimmäinen karjalankielinen karaoketallenne. Mukana karjalankielistä folkkia,
-  rokkia ja käännösiskelmää useilta eri vuosikymmeniltä. Eikä haittaa vaikkei kieli olisi
-  entuudestaan tuttu, karaoke laittaa sanat suuhusi. Tallenteella on uusia ja vanhoja lauluja
-  kaikilla karjalan kielen murteilla.
-</p>
+    <div class="intro-symbol">◈</div>
 
-<p class="intro-production">
-  Tuotanto: Karelia Folk ry / Parempi Pajot 20–21
-</p>
+    <p class="intro-finnish">
+      Hurmaa kuulijasi karjalan kielellä. Tässä on karjalankielisen iskusävelmän uusi tuleminen,
+      maailman ensimmäinen karjalankielinen karaoketallenne. Mukana karjalankielistä folkkia,
+      rokkia ja käännösiskelmää useilta eri vuosikymmeniltä. Eikä haittaa vaikkei kieli olisi
+      entuudestaan tuttu, karaoke laittaa sanat suuhusi. Tallenteella on uusia ja vanhoja lauluja
+      kaikilla karjalan kielen murteilla.
+    </p>
 
+    <p class="intro-production">
+      Tuotanto: Karelia Folk ry / Parempi Pajot 20–21
+    </p>
   </div>
-</section><!-- ---------- RAHOITTAJAT VALKOISELLA TAUSTALLA ---------- --><section class="supporters">
+</section>
+
+<section class="supporters">
   <div class="supporters-inner">
     <div class="supporters-logos">
-      <!-- VAIHDA src rahoittajien logot sisältävään kuvaan -->
       <img src="rahoittajat_logot.png" alt="Rahoittajien logot">
     </div>
     <p class="supporters-text">
@@ -417,9 +415,13 @@ footer {
       Karjalan kielen elvytyshanke, humanistinen osasto, Itä-Suomen yliopisto.
     </p>
   </div>
-</section><!-- vihreä viiva heti valkoisen logopalkin jälkeen --><div class="intro-separator intro-green"></div><nav id="lauluvalikko" class="song-nav">
-    <h1 class="site-title">KARAOKE KARJALAKSE</h1>
-  </br></br>
+</section>
+
+<div class="intro-separator intro-green"></div>
+
+<nav id="lauluvalikko" class="song-nav">
+  <h1 class="site-title">KARAOKE KARJALAKSE</h1>
+  <br><br>
   <ul>
     <li>
       <a href="#cibi-cibi" class="song-nav-title">
@@ -427,207 +429,199 @@ footer {
       </a>
       <div class="song-nav-artist">SANTTU KARHU JA TALVISOVAT</div>
       <div class="song-nav-meta">säv. Santtu Karhu, san. trad. Santtu Karhu</div>
-    </li><li>
-  <a href="#cuuruu" class="song-nav-title">
-    <span class="song-nav-number">2.</span>Čuuruu
-  </a>
-  <div class="song-nav-artist">SATTUMA</div>
-  <div class="song-nav-meta">säv. &amp; san. Arto Rinne</div>
-</li>
+    </li>
 
-<li>
-  <a href="#elamani-kokemuksie" class="song-nav-title">
-    <span class="song-nav-number">3.</span>Elämäni kokemuksie
-  </a>
-  <div class="song-nav-artist">KALEVALAN KANSANLAULURYHMÄ</div>
-  <div class="song-nav-meta">säv. &amp; san. Valentina Saburova</div>
-</li>
+    <li>
+      <a href="#cuuruu" class="song-nav-title">
+        <span class="song-nav-number">2.</span>Čuuruu
+      </a>
+      <div class="song-nav-artist">SATTUMA</div>
+      <div class="song-nav-meta">säv. &amp; san. Arto Rinne</div>
+    </li>
 
-<li>
-  <a href="#evakon-pajo" class="song-nav-title">
-    <span class="song-nav-number">4.</span>Evakon pajo
-  </a>
-  <div class="song-nav-artist">(Evakon laulu - säestys KarjalaBrihat)</div>
-  <div class="song-nav-meta">säv. &amp; san. Veikko Lavi, karj. san. Eero Mäkkeli</div>
-</li>
+    <li>
+      <a href="#elamani-kokemuksie" class="song-nav-title">
+        <span class="song-nav-number">3.</span>Elämäni kokemuksie
+      </a>
+      <div class="song-nav-artist">KALEVALAN KANSANLAULURYHMÄ</div>
+      <div class="song-nav-meta">säv. &amp; san. Valentina Saburova</div>
+    </li>
 
-<li>
-  <a href="#hyllatty-ei-ole-hullattu" class="song-nav-title">
-    <span class="song-nav-number">5.</span>Hyllätty ei ole hullattu
-  </a>
-  <div class="song-nav-artist">SANTTU KARHU JA TALVISOVAT</div>
-  <div class="song-nav-meta">säv. &amp; san. Santtu Karhu</div>
-</li>
+    <li>
+      <a href="#evakon-pajo" class="song-nav-title">
+        <span class="song-nav-number">4.</span>Evakon pajo
+      </a>
+      <div class="song-nav-artist">(Evakon laulu - säestys KarjalaBrihat)</div>
+      <div class="song-nav-meta">säv. &amp; san. Veikko Lavi, karj. san. Eero Mäkkeli</div>
+    </li>
 
-<li>
-  <a href="#hyrzyla" class="song-nav-title">
-    <span class="song-nav-number">6.</span>Hyrzylä
-  </a>
-  <div class="song-nav-artist">LOIMOLAN VOIMA</div>
-  <div class="song-nav-meta">säv. Mika Saatsi, san. Niko Saatsi</div>
-</li>
+    <li>
+      <a href="#hyllatty-ei-ole-hullattu" class="song-nav-title">
+        <span class="song-nav-number">5.</span>Hyllätty ei ole hullattu
+      </a>
+      <div class="song-nav-artist">SANTTU KARHU JA TALVISOVAT</div>
+      <div class="song-nav-meta">säv. &amp; san. Santtu Karhu</div>
+    </li>
 
-<li>
-  <a href="#kaijasjarves-aija-kalua" class="song-nav-title">
-    <span class="song-nav-number">7.</span>Kaijasjärves äijä kalua
-  </a>
-  <div class="song-nav-artist">(säestys KarjalaBrihat)</div>
-  <!-- ei erillistä säv./san.-riviä lähdetekstissä -->
-</li>
+    <li>
+      <a href="#hyrzyla" class="song-nav-title">
+        <span class="song-nav-number">6.</span>Hyrzylä
+      </a>
+      <div class="song-nav-artist">LOIMOLAN VOIMA</div>
+      <div class="song-nav-meta">säv. Mika Saatsi, san. Niko Saatsi</div>
+    </li>
 
-<li>
-  <a href="#karjalan-kumbuzil" class="song-nav-title">
-    <span class="song-nav-number">8.</span>Karjalan kumbuzil
-  </a>
-  <div class="song-nav-artist">(säestys Hannu ja Iivo Brelo)</div>
-  <div class="song-nav-meta">säv. trad., karj. san. Iivo Härkönen</div>
-</li>
+    <li>
+      <a href="#kaijasjarves-aija-kalua" class="song-nav-title">
+        <span class="song-nav-number">7.</span>Kaijasjärves äijä kalua
+      </a>
+      <div class="song-nav-artist">(säestys KarjalaBrihat)</div>
+    </li>
 
-<li>
-  <a href="#karjalani-rahvas" class="song-nav-title">
-    <span class="song-nav-number">9.</span>Karjalani rahvas
-  </a>
-  <div class="song-nav-artist">(säestys Hannu Brelo)</div>
-  <div class="song-nav-meta">säv. &amp; san. Vanja Tallas</div>
-</li>
+    <li>
+      <a href="#karjalan-kumbuzil" class="song-nav-title">
+        <span class="song-nav-number">8.</span>Karjalan kumbuzil
+      </a>
+      <div class="song-nav-artist">(säestys Hannu ja Iivo Brelo)</div>
+      <div class="song-nav-meta">säv. trad., karj. san. Iivo Härkönen</div>
+    </li>
 
-<li>
-  <a href="#kylyni" class="song-nav-title">
-    <span class="song-nav-number">10.</span>Kylyni
-  </a>
-  <div class="song-nav-artist">KALEVALAN KANSANLAULURYHMÄ</div>
-  <div class="song-nav-meta">säv. &amp; san. Valentina Saburova</div>
-</li>
+    <li>
+      <a href="#karjalani-rahvas" class="song-nav-title">
+        <span class="song-nav-number">9.</span>Karjalani rahvas
+      </a>
+      <div class="song-nav-artist">(säestys Hannu Brelo)</div>
+      <div class="song-nav-meta">säv. &amp; san. Vanja Tallas</div>
+    </li>
 
-<li>
-  <a href="#kyla-vuotti-uutta-kuuta" class="song-nav-title">
-    <span class="song-nav-number">11.</span>Kylä vuotti uutta kuuta
-  </a>
-  <div class="song-nav-artist">(säestys Rälläkkä)</div>
-  <!-- ei erillistä säv./san.-riviä lähdetekstissä -->
-</li>
+    <li>
+      <a href="#kylyni" class="song-nav-title">
+        <span class="song-nav-number">10.</span>Kylyni
+      </a>
+      <div class="song-nav-artist">KALEVALAN KANSANLAULURYHMÄ</div>
+      <div class="song-nav-meta">säv. &amp; san. Valentina Saburova</div>
+    </li>
 
-<li>
-  <a href="#maman-kevatpajoine" class="song-nav-title">
-    <span class="song-nav-number">12.</span>Maman kevätpajoine
-  </a>
-  <div class="song-nav-artist">SATTUMA</div>
-  <div class="song-nav-meta">säv. Arto Rinne, san. Zinaida Dubinina</div>
-</li>
+    <li>
+      <a href="#kyla-vuotti-uutta-kuuta" class="song-nav-title">
+        <span class="song-nav-number">11.</span>Kylä vuotti uutta kuuta
+      </a>
+      <div class="song-nav-artist">(säestys Rälläkkä)</div>
+    </li>
 
-<li>
-  <a href="#metrolla-buabon-luo" class="song-nav-title">
-    <span class="song-nav-number">13.</span>Metrolla buabon luo
-  </a>
-  <div class="song-nav-artist">KRISTIINA OLANTO &amp; LEKKUJAD</div>
-  <div class="song-nav-meta">säv. Soili Perkiö, san. Hannele Huovi, karj. san. Katerina Paalamo</div>
-</li>
+    <li>
+      <a href="#maman-kevatpajoine" class="song-nav-title">
+        <span class="song-nav-number">12.</span>Maman kevätpajoine
+      </a>
+      <div class="song-nav-artist">SATTUMA</div>
+      <div class="song-nav-meta">säv. Arto Rinne, san. Zinaida Dubinina</div>
+    </li>
 
-<li>
-  <a href="#mina-mustan" class="song-nav-title">
-    <span class="song-nav-number">14.</span>Minä mustan
-  </a>
-  <div class="song-nav-artist">(säestys KarjalaBrihat)</div>
-  <div class="song-nav-meta">säv. &amp; san. Aleksandr Saveljev</div>
-</li>
+    <li>
+      <a href="#metrolla-buabon-luo" class="song-nav-title">
+        <span class="song-nav-number">13.</span>Metrolla buabon luo
+      </a>
+      <div class="song-nav-artist">KRISTIINA OLANTO &amp; LEKKUJAD</div>
+      <div class="song-nav-meta">säv. Soili Perkiö, san. Hannele Huovi, karj. san. Katerina Paalamo</div>
+    </li>
 
-<li>
-  <a href="#oman-muan-tuli" class="song-nav-title">
-    <span class="song-nav-number">15.</span>Oman muan tuli
-  </a>
-  <div class="song-nav-artist">FOLKSWAGEN</div>
-  <div class="song-nav-meta">säv. &amp; san. Olli Nannula</div>
-</li>
+    <li>
+      <a href="#mina-mustan" class="song-nav-title">
+        <span class="song-nav-number">14.</span>Minä mustan
+      </a>
+      <div class="song-nav-artist">(säestys KarjalaBrihat)</div>
+      <div class="song-nav-meta">säv. &amp; san. Aleksandr Saveljev</div>
+    </li>
 
-<li>
-  <a href="#petroskoi" class="song-nav-title">
-    <span class="song-nav-number">16.</span>Petroskoi
-  </a>
-  <div class="song-nav-artist">MYLLÄRIT</div>
-  <div class="song-nav-meta">säv.&amp; san. Iivan L’jovkin</div>
-</li>
+    <li>
+      <a href="#oman-muan-tuli" class="song-nav-title">
+        <span class="song-nav-number">15.</span>Oman muan tuli
+      </a>
+      <div class="song-nav-artist">FOLKSWAGEN</div>
+      <div class="song-nav-meta">säv. &amp; san. Olli Nannula</div>
+    </li>
 
-<li>
-  <a href="#regipajo" class="song-nav-title">
-    <span class="song-nav-number">17.</span>Regipajo
-  </a>
-  <div class="song-nav-artist">SANTTU KARHU JA TALVISOVAT</div>
-  <div class="song-nav-meta">säv. &amp; san. Santtu Karhu</div>
-</li>
+    <li>
+      <a href="#petroskoi" class="song-nav-title">
+        <span class="song-nav-number">16.</span>Petroskoi
+      </a>
+      <div class="song-nav-artist">MYLLÄRIT</div>
+      <div class="song-nav-meta">säv.&amp; san. Iivan L’jovkin</div>
+    </li>
 
-<li>
-  <a href="#ruskie-neicyt" class="song-nav-title">
-    <span class="song-nav-number">18.</span>Ruskie neičyt
-  </a>
-  <div class="song-nav-artist">(säestys KarjalaBrihat)</div>
-  <!-- ei erillistä säv./san.-riviä lähdetekstissä -->
-</li>
+    <li>
+      <a href="#regipajo" class="song-nav-title">
+        <span class="song-nav-number">17.</span>Regipajo
+      </a>
+      <div class="song-nav-artist">SANTTU KARHU JA TALVISOVAT</div>
+      <div class="song-nav-meta">säv. &amp; san. Santtu Karhu</div>
+    </li>
 
-<li>
-  <a href="#soutelemma-joutelemma" class="song-nav-title">
-    <span class="song-nav-number">19.</span>Soutelemma joutelemma
-  </a>
-  <div class="song-nav-artist">SATTUMA</div>
-  <div class="song-nav-meta">säv. Arto Rinne, san. trad. / Arto Rinne</div>
-</li>
+    <li>
+      <a href="#ruskie-neicyt" class="song-nav-title">
+        <span class="song-nav-number">18.</span>Ruskie neičyt
+      </a>
+      <div class="song-nav-artist">(säestys KarjalaBrihat)</div>
+    </li>
 
-<li>
-  <a href="#suvi-karjal" class="song-nav-title">
-    <span class="song-nav-number">20.</span>Suvi-Karjal
-  </a>
-  <div class="song-nav-artist">(Pohjois-Karjala - säestys Rälläkkä)</div>
-  <div class="song-nav-meta">säv. &amp; san. Gösta Sundqvist, karj. kiel. sanat Timoi Munne &amp; Santtu Karhu</div>
-</li>
+    <li>
+      <a href="#soutelemma-joutelemma" class="song-nav-title">
+        <span class="song-nav-number">19.</span>Soutelemma joutelemma
+      </a>
+      <div class="song-nav-artist">SATTUMA</div>
+      <div class="song-nav-meta">säv. Arto Rinne, san. trad. / Arto Rinne</div>
+    </li>
 
-<li>
-  <a href="#tietoi-karjalas" class="song-nav-title">
-    <span class="song-nav-number">21.</span>Tietoi karjalas
-  </a>
-  <div class="song-nav-artist">(Heili Karjalasta - säestys KarjalaBrihat)</div>
-  <div class="song-nav-meta">säv. Georg Malmstén, san. R.R. Ryynänen, karj. san. Eero Mäkkeli</div>
-</li>
+    <li>
+      <a href="#suvi-karjal" class="song-nav-title">
+        <span class="song-nav-number">20.</span>Suvi-Karjal
+      </a>
+      <div class="song-nav-artist">(Pohjois-Karjala - säestys Rälläkkä)</div>
+      <div class="song-nav-meta">säv. &amp; san. Gösta Sundqvist, karj. kiel. sanat Timoi Munne &amp; Santtu Karhu</div>
+    </li>
 
-<li>
-  <a href="#urai-matkuniekka" class="song-nav-title">
-    <span class="song-nav-number">22.</span>Urai matkuniekka
-  </a>
-  <div class="song-nav-artist">HANNU BRELO</div>
-  <div class="song-nav-meta">säv. &amp; san. Hannu Brelo</div>
-</li>
+    <li>
+      <a href="#tietoi-karjalas" class="song-nav-title">
+        <span class="song-nav-number">21.</span>Tietoi karjalas
+      </a>
+      <div class="song-nav-artist">(Heili Karjalasta - säestys KarjalaBrihat)</div>
+      <div class="song-nav-meta">säv. Georg Malmstén, san. R.R. Ryynänen, karj. san. Eero Mäkkeli</div>
+    </li>
 
-<li>
-  <a href="#valgei-vallys" class="song-nav-title">
-    <span class="song-nav-number">23.</span>Valgei vällys
-  </a>
-  <div class="song-nav-artist">SANTTU KARHU JA TALVISOVAT</div>
-  <div class="song-nav-meta">säv. &amp; san. Santtu Karhu</div>
-</li>
+    <li>
+      <a href="#urai-matkuniekka" class="song-nav-title">
+        <span class="song-nav-number">22.</span>Urai matkuniekka
+      </a>
+      <div class="song-nav-artist">HANNU BRELO</div>
+      <div class="song-nav-meta">säv. &amp; san. Hannu Brelo</div>
+    </li>
 
+    <li>
+      <a href="#valgei-vallys" class="song-nav-title">
+        <span class="song-nav-number">23.</span>Valgei vällys
+      </a>
+      <div class="song-nav-artist">SANTTU KARHU JA TALVISOVAT</div>
+      <div class="song-nav-meta">säv. &amp; san. Santtu Karhu</div>
+    </li>
   </ul>
-</nav><!-- ---------- 1. Čibi-čibi linduine ---------- -->
+</nav>
+
+<!-- 1 -->
 <div class="video-item" id="cibi-cibi">
   <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
-
   <div class="song-header">
     <div class="song-number">1.</div>
     <h1>Čibi-čibi linduine</h1>
     <div class="artist">SANTTU KARHU JA TALVISOVAT</div>
     <div class="credits-line">säv. Santtu Karhu, san. trad. Santtu Karhu</div>
   </div>
-
   <div class="video-wrapper">
-    <video
-      id="video-cibi-cibi"
-      controls
-      preload="metadata"
-      playsinline>
+    <video id="video-cibi-cibi" controls preload="metadata" playsinline>
       <source src="https://archive.org/download/cibi-cibi/Cibi-Cibi%2B-0.m4v" type="video/mp4">
-      Selaimesi ei tue HTML5-videota.
     </video>
   </div>
-
   <div class="transponoinnit">
-    <a class="linkkibiisi" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br/>
+    <a class="linkkibiisi back-to-menu" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br>
     🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
     <span class="transpose-buttons" data-video-id="video-cibi-cibi">
       <button class="transpose-button" data-src="https://archive.org/download/cibi-cibi/Cibi-Cibi-3.m4v">-3</button>
@@ -639,7 +633,6 @@ footer {
     &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
     <a class="archive-link" href="https://archive.org/details/cibi-cibi" target="_blank" rel="noopener noreferrer">Avaa Internet Archivessa</a>
   </div>
-
   <div class="song-body">
 Čibi-čibi linduine on karjalainen luonto- ja eläinaiheinen lastenlaulu, jonka loppua Santtu Karhu on jonkin verran muokannut.
 Näin viaton lastenlaulu saa Santulle tyypillisen hävyttömän lisävärityksen. Laulun riettaus on kuitenkin hyvin viitteellistä
@@ -655,39 +648,31 @@ Samal aigua vijatoi lapsienpajo suau šittaizenčyksen, kui tavan mugah olettel
 da pajuo voibi pidiä čomannu da se pädöy kaikile. Karhu ei musta, kuspäi on löydänyh pajon, häi vaigu on kuulluh sen kustahto.
 Konsertois häi on puaksuh ezitellyh pajon nenga: “nygöi myö rikommo yhten karjalazen rahvahan pajon”.
   </div>
-
   <p class="song-footer">
 Karaokesäestys Santtu Karhu | Kuvitus Jussi Sinkkonen Kuvaus Jussi Sinkkonen, Joonas Gavrilov |
 Leikkaus ja animointi Jussi Sinkkonen Kuvaleikkeet "Venehjärveläinen runonlaulaja Vihtoora Lesonen" / Inha, I. K. /
 Historian kuvakokoelma / Museovirasto Otteita Häidenvietto Karjalan runomailla -elokuvasta /
 Kalevala-seura “Thunderstorm” / The Element / pexels.com
   </p>
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
 </div>
 
-<!-- ---------- 2. Čuuruu ---------- -->
+<!-- 2 -->
 <div class="video-item" id="cuuruu">
   <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
-
   <div class="song-header">
     <div class="song-number">2.</div>
     <h1>Čuuruu</h1>
     <div class="artist">SATTUMA</div>
     <div class="credits-line">säv. &amp; san. Arto Rinne</div>
   </div>
-
   <div class="video-wrapper">
-    <video
-      id="video-cuuruu"
-      controls
-      preload="metadata"
-      playsinline>
+    <video id="video-cuuruu" controls preload="metadata" playsinline>
       <source src="https://archive.org/download/cuuruu/Cuuruu%2B-0.m4v" type="video/mp4">
-      Selaimesi ei tue HTML5-videota.
     </video>
   </div>
-
   <div class="transponoinnit">
-    <a class="linkkibiisi" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br/>
+    <a class="linkkibiisi back-to-menu" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br>
     🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
     <span class="transpose-buttons" data-video-id="video-cuuruu">
       <button class="transpose-button" data-src="https://archive.org/download/cuuruu/Cuuruu-5.m4v">-5</button>
@@ -701,8 +686,7 @@ Kalevala-seura “Thunderstorm” / The Element / pexels.com
     &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
     <a class="archive-link" href="https://archive.org/details/cuuruu" target="_blank" rel="noopener noreferrer">Avaa Internet Archivessa</a>
   </div>
-
-<div class="song-body">
+  <div class="song-body">
 Cuuru on perinteinen aunuksenkarjalainen piirileikki, jota laulettiin akkapellana tanssin säestyksenä. Perusmelodialinja on ihan yksinkertainen, siksi Sattuman versiota sovittaessa sävelsin kertsin ja bridgen. Niihin teki sanat Natalia Antonova Vieljärveltä. Laulu on tytöt/pojat-pilalaulu, mutta se kertoo myös mm karjalaisesta vieraanvaraisuudesta.
 – Arto Rinne (kappaleen säveltäjä)
 
@@ -712,24 +696,1152 @@ Cuuru on perinteinen aunuksenkarjalainen piirileikki, jota laulettiin akkapellan
 
 Čuuruu on perindölline anuksenkarjalaine kruugas kižuandu, kuduadu pajatettih ilmai soitindu, da pajattajes pläšittih. Tavalline meloudii on ihan prostoi, sendäh säveldin kerdosanat da bridgen, konzu luajiin Sattuman versien. Sanat niilöih on kirjutannuh Natalia Antonova Vieljärvespäi. Pajo on neidizet/brihat-šuutkupajo, ga se kerdou sežo karjalazes rahmannožuos.
 – Arto Rinne (pajon säveldäi)
-</div>
-
-<p class="song-footer">
+  </div>
+  <p class="song-footer">
 Karaokesäestys uudelleenmiksattu albumilta Joo kyllä! (2013)<br>
 Arto Rinne – bouzuki | Dmitri Djomin – puhaltimet | Eila Rinne – viulu<br>
 Artjom Undalov – basso | Igor Saharov – rummut
 <br><br>
 Alkuperäinen äänitys Alex Rozen, miksaus ja masterointi Grigori Arhipov<br>
 Kuvaleikkeet “Pekko ja Tomma, Vihtoora Lesosen lapset” / Inha, I. K. / Suomalais-ugrilainen kuvakokoelma / Museovirasto | “Tanssiva trio” Satu Aaltonen | “Hiekka” Helka Riionheimo Otteita Häidenvietto Karjalan runomailla -elokuvasta / Kalevala-seura
-</p>
+<br><br>
+Passibot / Kiitokset<br>
+Jukka Timonen / Suomalaisen Kirjallisuuden Seura, Niina Hämäläinen / Kalevala-seura, Pekka Suutari / Karjalan tutkimuslaitos, Helka Riionheimo / Karjalan tutkimuslaitos
+<br><br>
+Kielenkaččomine / Kielentarkistus<br>
+Olga Karlova, Katerina Paalamo, Natalia Giloeva, Timoi Munne
+<br><br>
+Pajo-ozuttelut karjalakse / Kappale-esittelyt karjalaksi<br>
+Katerina Paalamo, Johnny Haataja, Heidi Kuosmanen, Elena Rapa, Joona Sutinen, Milla Tynnyrinen, Niko Saatsi
+<br><br>
+Gruafilline planiiruičendu / Graafinen suunnittelu<br>
+Joke Leppänen, Jussi Sinkkonen, Raine Rysä<br>
+'Uhtuan lintu' -logoa karaokevideolla käytetty Uhtua-seuran luvalla,<br>
+alkuperäisen logon suunnitellut Erik Bruun
+  </p>
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+</div>
 
-<img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
-</div><!-- ---------- Paikkamerkkiankkurit muille kappaleille ---------- --><span id="elamani-kokemuksie" class="placeholder-anchor"></span> <span id="evakon-pajo" class="placeholder-anchor"></span> <span id="hyllatty-ei-ole-hullattu" class="placeholder-anchor"></span> <span id="hyrzyla" class="placeholder-anchor"></span> <span id="kaijasjarves-aija-kalua" class="placeholder-anchor"></span> <span id="karjalan-kumbuzil" class="placeholder-anchor"></span> <span id="karjalani-rahvas" class="placeholder-anchor"></span> <span id="kylyni" class="placeholder-anchor"></span> <span id="kyla-vuotti-uutta-kuuta" class="placeholder-anchor"></span> <span id="maman-kevatpajoine" class="placeholder-anchor"></span> <span id="metrolla-buabon-luo" class="placeholder-anchor"></span> <span id="mina-mustan" class="placeholder-anchor"></span> <span id="oman-muan-tuli" class="placeholder-anchor"></span> <span id="petroskoi" class="placeholder-anchor"></span> <span id="regipajo" class="placeholder-anchor"></span> <span id="ruskie-neicyt" class="placeholder-anchor"></span> <span id="soutelemma-joutelemma" class="placeholder-anchor"></span> <span id="suvi-karjal" class="placeholder-anchor"></span> <span id="tietoi-karjalas" class="placeholder-anchor"></span> <span id="urai-matkuniekka" class="placeholder-anchor"></span> <span id="valgei-vallys" class="placeholder-anchor"></span>
+<!-- 3 -->
+<div class="video-item" id="elamani-kokemuksie">
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+  <div class="song-header">
+    <div class="song-number">3.</div>
+    <h1>Elämäni kokemuksie</h1>
+    <div class="artist">KALEVALAN KANSANLAULURYHMÄ</div>
+    <div class="credits-line">säv. &amp; san. Valentina Saburova</div>
+  </div>
+  <div class="video-wrapper">
+    <video id="video-elamani-kokemuksie" controls preload="metadata" playsinline>
+      <source src="https://archive.org/download/elamani/Elamani.m4v" type="video/mp4">
+    </video>
+  </div>
+  <div class="transponoinnit">
+    <a class="linkkibiisi back-to-menu" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br>
+    🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
+    <span class="transpose-buttons" data-video-id="video-elamani-kokemuksie">
+      <button class="transpose-button" data-src="https://archive.org/download/elamani/Elamani-5.m4v">-5</button>
+      <button class="transpose-button" data-src="https://archive.org/download/elamani/Elamani-3.m4v">-3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/elamani/Elamani-2.m4v">-2</button>
+      <button class="transpose-button active" data-src="https://archive.org/download/elamani/Elamani.m4v">0</button>
+      <button class="transpose-button" data-src="https://archive.org/download/elamani/Elamani%2B2.m4v">+2</button>
+      <button class="transpose-button" data-src="https://archive.org/download/elamani/Elamani%2B3.m4v">+3</button>
+    </span>
+    &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
+    <a class="archive-link" href="https://archive.org/details/elamani" target="_blank" rel="noopener noreferrer">Avaa Internet Archivessa</a>
+  </div>
+  <div class="song-body">
+Valentina Saburova on kirjoittanut maanläheisiä ja kotiseutuaiheisia lauluja omalle lauluryhmälleen Kalevalassa (Uhtualla). Saburovan vienalaiset laulut tuntee selkeästä, jopa naiivista melodisuudesta ja elämäniloisista laulujen aiheista. Harvoja on niitä, jotka ovat kirjoittaneet suuria määriä lauluja karjalaksi, mutta Valentina Saburovalla niitä on monista vienankarjalaisille tärkeistä elämänalueista: kotikylästä (runolaulajista kuulun) Kuittijärven rannalla, jossa eletään, vanhetaan, käydään kylyssä (‘saunassa’) ja rakastetaan sekä kasvatetaan toinen toisiaan hyvään elämään. Tässä laulussa kohdataan ihmisiä rajan ylitse, tavataan ja sevätään (‘halataan’).
+
+    <div class="divider-symbol">
+      <img src="uhtuan-lintu_punainen_PNG_V3.png" alt="Lintuornamentti">
+    </div>
+
+Valentina Saburova on kirjuttan rahvahalla läheisie ta kotimua-aiheisie lauluja omalla laulujoukollah Kalevalašša, Uhtuošša. Saburovan vienalaiset laulut tuntou elämänilosista aiheista, melodisešti ne ollah šelkiet ta kepiet. Harvaseh on niitä, ken šais aikah näin äijän lauluo karjalakši. Valentina Saburovalla niitä on monešta vienankarjalaisilla tärkeistä elokšen as’s’oista: kotikyläštä Kuittijärven rannalla, kumpasešša eletäh, vanhetah, käyväh kylyh ta armaššetah šekä kašvatetah toini toista hyväh elämäh. Tässä laulušša vaššatah rahvašta rajan yličči, tavatah ta ševätäh.
+  </div>
+  <p class="song-footer">
+Karaokesäestys uudelleenmiksattu albumilta Kotitaloni (2019)<br>
+Kymmenhenkistä Kalevala-kansanlauluryhmää johtaa Valentina Saburova<br>
+Sergei Gromov - haitari<br>
+Tuottanut Uhtua-Seura | Äänittänyt Grigori Arhipov<br>
+Kuvaleikkeet Mikko Sinkkonen / Uhtua-seura<br>
+“okku” / Inha, I. K. / Suomalais-ugrilainen kuvakokoelma / Museovirasto
+  </p>
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+</div>
+
+<!-- 4 -->
+<div class="video-item" id="evakon-pajo">
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+  <div class="song-header">
+    <div class="song-number">4.</div>
+    <h1>Evakon pajo</h1>
+    <div class="artist">(Evakon laulu - säestys KarjalaBrihat)</div>
+    <div class="credits-line">säv. &amp; san. Veikko Lavi, karj. san. Eero Mäkkeli</div>
+  </div>
+  <div class="video-wrapper">
+    <video id="video-evakon-pajo" controls preload="metadata" playsinline>
+      <source src="https://archive.org/download/evakonpajo/Evakonpajo.m4v" type="video/mp4">
+    </video>
+  </div>
+  <div class="transponoinnit">
+    <a class="linkkibiisi back-to-menu" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br>
+    🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
+    <span class="transpose-buttons" data-video-id="video-evakon-pajo">
+      <button class="transpose-button" data-src="https://archive.org/download/evakonpajo/Evakonpajo-5.m4v">-5</button>
+      <button class="transpose-button" data-src="https://archive.org/download/evakonpajo/Evakonpajo-3.m4v">-3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/evakonpajo/Evakonpajo-2.m4v">-2</button>
+      <button class="transpose-button active" data-src="https://archive.org/download/evakonpajo/Evakonpajo.m4v">0</button>
+      <button class="transpose-button" data-src="https://archive.org/download/evakonpajo/Evakonpajo%2B2.m4v">+2</button>
+      <button class="transpose-button" data-src="https://archive.org/download/evakonpajo/Evakonpajo%2B3.m4v">+3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/evakonpajo/Evakonpajo%2B5.m4v">+5</button>
+    </span>
+    &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
+    <a class="archive-link" href="https://archive.org/details/evakonpajo" target="_blank" rel="noopener noreferrer">Avaa Internet Archivessa</a>
+  </div>
+  <div class="song-body">
+Kymenlaaksolainen Veikko Lavi on maamme tunnetuimpia laulelmien ja kuplettien tekijöitä. Hänen lähes viisikymmentä vuotta kestänyt ura sisältää lukuisan määrän ikivihreitä lauluja, joissa esiin nousevat tavalliset ihmiset huolineen ja iloineen. Lavi oli hyvin kiinnostunut lähihistoriasta ja kirjoitti siihen liittyviä tarinoita. Hän koki henkilökohtaisesti sekä sisällissodan että talvi- ja jatkosodan. Lapsen näkökulmaan tehty Evakon laulu on yksi koskettavimpia karjalaisten kotiseudun menetyksestä kertovia lauluja.
+Laulun tunnetuin tulkki on Anneli Saaristo, jonka laulamana kappale levytettiin vuonna 1985 Ystävät ja viholliset -nimiselle sota-aiheiselle albumille. Karjalankielisen version Evakon pajo on kääntänyt pieksämäkeläinen Eero Mäkkeli (1933-2008), joka tunnetaan Pajata briha, pajata -iskelmälevyn laulujen kääntäjänä ja esittäjänä.
+
+    <div class="divider-symbol">
+      <img src="uhtuan-lintu_punainen_PNG_V3.png" alt="Lintuornamentti">
+    </div>
+
+Kymenlaaksolaine Veikko Lavi on Suomen yksi tundiettuloimbii pajozien da kuplietoin luadijoi. Hänen läs 50-vuodehizeh muuzikuruadoh kuuluu vägitukku igivahnua pajuo, kudamis nävytäh tavallizen ristikanzan huolet da ilot. Lavi on kiinnostunnuh lähihistourih da häi kirjutti sih liittyjis starinois. Häi iče eli välly-, talvi- da jatkosovan. Lapsen silmil luajittu Evakon pajo on yksi koskettavembis karjalazien oman muan vahingolois kerdojis pajolois.
+Pajon tundietumbi ozuttai on Anneli Saaristo, kudai pajatti Evakon pajon vuvvennu 1985 voinu-tiemazes al’bomas Dovarišat da vihaniekat. Karjalankielizen versien Evakon pajo on kiändänyh pieksämäkeläine Eero Mäkkeli (1933-2008), kudai on tundiettu Pajata briha, pajata -estruadumuuzikkudiskan pajoloin kiändäjänny da pajattajannu.
+  </div>
+  <p class="song-footer">
+Karaokesäestys KarjalaBrihat | Heikki Kuikka - kitara, taustalaulu | Pentti Mäkkeli - taustalaulu | Pekka Jolkkonen - haitari | Miika Mustonen - rummut
+<br><br>
+Äänittänyt, miksannut ja masteroinut Antti Heikkilä<br>
+Kuvitus, leikkaus ja animointi Jussi Sinkkonen<br>
+Kuvaleikkeet<br>
+Antti Salokannel, Evakkoarkku-näyttely
+<br><br>
+Museovirasto:<br>
+"karjalaisia evakkopoikia ruokkimassa hevosta Huittisissa" / Historian kuvakokoelma "evakkoja, kaksi naista ja nauta" / Bonney, Thérèse / Historian kuvakokoelma
+"evakkoja Terijoelta Heinolan seminaarissa" / Bonney, Thérèse / Historian kuvakokoelma "Suojärven Hyrsylän mutkan asukkaat palaamassa sotavankeudesta karanteenileiriin Helsingin Viikkiin" / Pietinen / Historian kuvakokoelma Pietisen kokoelma
+"karjaa siirretään Suomen puolelta Ruotsiin Lapin sodan alussa" / Rollfoto / Historian kuvakokoelma | "Suojärven Hyrsylän mutkan asukkaat palaamassa sotavankeudesta karanteenileiriin Helsingin Viikkiin" / Pietinen / Historian kuvakokoelma Pietisen kokoelma "evakkoja, vanha huivipäinen nainen" / Bonney, Thérèse / Historian kuvakokoelma "evakkojuna lähdössä Riihimäeltä pohjoiseen" / Finlandia Kuva Oy, kuvaaja ; TK-Kantola / Kansatieteen kuvakokoelma | "Suojärven Hyrsylän mutkan asukkaat palaamassa sotavankeudesta" / Pietinen / Historian kuvakokoelma Pietisen kokoelma | "evakkomatka Karjalasta on alkanut" / Historian kuvakokoelma | "talvisodan alun pommituksissa raunioitunut Antrean asema" / Lottonen, Erkki / Historian kuvakokoelma Karjalan Liiton kokoelma |"Pukinniemi" / Kruskopf, Pehr Adolf / Historian kuvakokoelma "mies rautatiekiskojen vierellä Hiitolassa" / Kyytinen, Pekka / Kansatieteen kuvakokoelma Pekka Kyytisen kokoelma | "Elisenvaaran rautatieasema" / Historian kuvakokoelma Karjalan Liiton kokoelma |"panoraamakuva, Elisenvaara pommitusten jälkeen" / Kyytinen, Pekka / Kansatieteen kuvakokoelma Antellin kokoelmat - Pekka Kyytisen kokoelma | "Ihalan tilan rakennuksia Valkeamäen kylässä" / Kansatieteen kuvakokoelma | "tavaraa lastataan junanvaunuihin Sortavalan evakuoinnin yhteydessä" / Näsi, Valde / Historian kuvakokoelma | "Helylän kylä Sortavalan maalaiskunnassa" / Historian kuvakokoelma Karjalan Liiton kokoelma |"Rytyn rautatiepysäkki Sortavalan maalaiskunnassa" / Historian kuvakokoelma Karjalan Liiton kokoelma |"Matkaselän rautatieasema" / Historian kuvakokoelma Karjalan Liiton kokoelma "Pälksaaren piirimielisairaala" / Historian kuvakokoelma Karjalan Liiton kokoelma |"näkymä Kemien mäeltä Kiteelle päin" / Kansatieteen kuvakokoelma |"Särkijärvi nähtynä Kostamoon menevältä tieltä" / Kansatieteen kuvakokoelmaKarjalaisen osakunnan kokoelma |"kaksi kuvaa: mökki pihapiireineen sekä pyykinpesua rantalaiturilla" / Schlüterin Kirjakauppa Yhtiö / Kansatieteen kuvakokoelma Karjalaisen osakunnan kokoelma |"rautatieasema" / Nordlund, U. / Kansatieteen kuvakokoelma Karjalaisen osakunnan kokoelma |"evakkokuormasto saapumassa Joensuuhun" / Historian kuvakokoelma
+  </p>
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+</div>
+
+<!-- 5 -->
+<div class="video-item" id="hyllatty-ei-ole-hullattu">
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+  <div class="song-header">
+    <div class="song-number">5.</div>
+    <h1>Hyllätty ei ole hullattu</h1>
+    <div class="artist">SANTTU KARHU JA TALVISOVAT</div>
+    <div class="credits-line">säv. &amp; san. Santtu Karhu</div>
+  </div>
+  <div class="video-wrapper">
+    <video id="video-hyllatty-ei-ole-hullattu" controls preload="metadata" playsinline>
+      <source src="https://archive.org/download/hyllatty/Hyllatty.m4v" type="video/mp4">
+    </video>
+  </div>
+  <div class="transponoinnit">
+    <a class="linkkibiisi back-to-menu" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br>
+    🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
+    <span class="transpose-buttons" data-video-id="video-hyllatty-ei-ole-hullattu">
+      <button class="transpose-button" data-src="https://archive.org/download/hyllatty/Hyllatty-3.m4v">-3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/hyllatty/Hyllatty-2.m4v">-2</button>
+      <button class="transpose-button active" data-src="https://archive.org/download/hyllatty/Hyllatty.m4v">0</button>
+      <button class="transpose-button" data-src="https://archive.org/download/hyllatty/Hyllatty%2B2.m4v">+2</button>
+      <button class="transpose-button" data-src="https://archive.org/download/hyllatty/Hyllatty%2B3.m4v">+3</button>
+    </span>
+    &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
+    <a class="archive-link" href="https://archive.org/details/hyllatty" target="_blank" rel="noopener noreferrer">Avaa Internet Archivessa</a>
+  </div>
+  <div class="song-body">
+Santtu Karhun kappale Hyllätty ei ole hullattu (Hylätty ei ole halvaantunut) kertoo vääristä valinnoista. Poika lyö päätään seinään juoden viinaa ja nuori nainen ei kevytmielisyytensä tähden tiedä kenen lasta odottaa. Vanhemmatkaan eivät ole viisaampia. Ukko tavoittelee nuoria naisia ja akka on tyhjänpuhuja juoruilija. Kovakorvaisiin on turha asettaa toivoa, kuten sananparren omaisessa kertosäkeistössä sanotaan: ”ei kuuron papin tähden kelloja halkaista”.
+
+    <div class="divider-symbol">
+      <img src="uhtuan-lintu_punainen_PNG_V3.png" alt="Lintuornamentti">
+    </div>
+
+Santtu Karhun pajo Hyllätty ei ole hullattu kerdou viäris valličuksis. Brihal ei ole ozua, häi juou viinua da nuori neidine ei tiijä, kenenbo lastu kandau kebjeimieližyön täh. Vahnembat ei olla i hajukkahembat. Ukko tabailou nuorii neidizii da akku on kielekäs. Kovakorvazih ei pie panna toivuo, muga kui sananpolven jyttyzes kerdavos sanotah: ”ei kuurnehen papin tähte kelloloi hallata".
+  </div>
+  <p class="song-footer">
+Karaokesäestys uudelleenmiksattu albumilta Terveh Petroskoi (2003)<br>
+Santtu Karhu - taustalaulu, basso | Fjodor Astashov - sähkökitara | Arto Rinne - bouzuki<br>
+Mihal Koksharov - rummut | Arkadi Sokolov - perkussiot | Sovittanut Talvisovat<br>
+Tuottanut Kosmosmilitsii | Miksannut Teemu Korpipää | Äänittänyt Fabrika Grez studii<br>
+Karaokemiksaus ja masterointi Teemu Korpipää<br>
+Kuvitus, leikkaus ja kuvaus Jussi Sinkkonen | Animointi Sini Rahkola, Jussi Sinkkonen<br>
+Kuvaleikkeet "kyykkämaalta" / Inha, I. K. / Suomalais-ugrilainen kuvakokoelma / Museovirasto | Bändikuva Vasili Petuhov<br>
+Kiitokset Heikki Ovaskainen / Murtovaaran talomuseo
+  </p>
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+</div>
+
+<!-- 6 -->
+<div class="video-item" id="hyrzyla">
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+  <div class="song-header">
+    <div class="song-number">6.</div>
+    <h1>Hyrzylä</h1>
+    <div class="artist">LOIMOLAN VOIMA</div>
+    <div class="credits-line">säv. Mika Saatsi, san. Niko Saatsi</div>
+  </div>
+  <div class="video-wrapper">
+    <video id="video-hyrzyla" controls preload="metadata" playsinline>
+      <source src="https://archive.org/download/hyrzyla/Hyrzyla.m4v" type="video/mp4">
+    </video>
+  </div>
+  <div class="transponoinnit">
+    <a class="linkkibiisi back-to-menu" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br>
+    🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
+    <span class="transpose-buttons" data-video-id="video-hyrzyla">
+      <button class="transpose-button" data-src="https://archive.org/download/hyrzyla/Hyrzyla-5.m4v">-5</button>
+      <button class="transpose-button" data-src="https://archive.org/download/hyrzyla/Hyrzyla-3.m4v">-3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/hyrzyla/Hyrzyla-2.m4v">-2</button>
+      <button class="transpose-button active" data-src="https://archive.org/download/hyrzyla/Hyrzyla.m4v">0</button>
+      <button class="transpose-button" data-src="https://archive.org/download/hyrzyla/Hyrzyla%2B2.m4v">+2</button>
+      <button class="transpose-button" data-src="https://archive.org/download/hyrzyla/Hyrzyla%2B3.m4v">+3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/hyrzyla/Hyrzyla%2B5.m4v">+5</button>
+    </span>
+    &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
+    <a class="archive-link" href="https://archive.org/details/hyrzyla" target="_blank" rel="noopener noreferrer">Avaa Internet Archivessa</a>
+  </div>
+  <div class="song-body">
+Hyrzylä-laulun aiheena on Suojärven Hyrsylän Mutka - tuo omaleimainen paikka, jossa rakennukset, kulttuuri ja ihmisten elämäntapa olivat hyvin erilaisia muuhun Suomeen verrattuna. Kappale kertoo yhdestä kesäpäivästä Hyrsylässä, siitä kuinka kauniina kylä näyttäytyy sinne saapuvan matkalaisen silmissä. Toivottavasti meillä kaikilla on jossakin myös oma Hyrsylämme: oma paikka, jossa meillä on kaikin puolin hyvä olla ja elää omaa elämäämme.
+
+    <div class="divider-symbol">
+      <img src="uhtuan-lintu_punainen_PNG_V3.png" alt="Lintuornamentti">
+    </div>
+
+Hyrzylä-pajon tiemana on Suojärven Hyrzylän Mutka - tua omaluadune paikka, kumbazessa taloit, kul’ttuura muga i rištikanzoin eländätaba oldih vägi erimoizet kuin muijalla Suomessa. Kappaleh on starina yhestä kezäpäivästä Hyrzylässä, siidä kuin čoma on kylä sinne tulijan matkalazen silmissä. Toivon mugah meillä jogahizella kuslienöy on dai miän oma Hyrzylä: oma sija, kussa meillä kaikičči on hyvä olla da omua elosta eliä.
+  </div>
+  <p class="song-footer">
+Karaokesäestys uudelleenmiksattu albumilta Ruttomužikan kyynäl (2020) | Mika Saatsi - kieli- ja rytmisoittimet, looper, Korg MS20 | Niko Saatsi - ukubasso, taustalaulu, rytmisoittimet | Äänittänyt ja miksannut Ilkka Hämäläinen | Masteroinut Antti Uusimäki / Uzu Noir | Tuottanut Ilkka Hämäläinen &amp; Loimola Lo-fi Oy | Sovittanut Ilkka Hämäläinen ja Mika Saatsi<br>
+Kuvaus Miia &amp; Hanna | Leikkaus Mika Saatsi, Jussi Sinkkonen<br>
+Animointi Sini Rahkola, Jussi Sinkkonen<br>
+Kuvaleikkeet "tyylikäs rajakarjalainen talo Hyrsylässä Suojärvellä" / Historian kuvakokoelma Karjalan Liiton kokoelma / Museovirasto
+  </p>
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+</div>
+
+<!-- 7 -->
+<div class="video-item" id="kaijasjarves-aija-kalua">
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+  <div class="song-header">
+    <div class="song-number">7.</div>
+    <h1>Kaijasjärves äijä kalua</h1>
+    <div class="artist">(säestys KarjalaBrihat)</div>
+  </div>
+  <div class="video-wrapper">
+    <video id="video-kaijasjarves-aija-kalua" controls preload="metadata" playsinline>
+      <source src="https://archive.org/download/kaijasjarves/Kaijasjarves.m4v" type="video/mp4">
+    </video>
+  </div>
+  <div class="transponoinnit">
+    <a class="linkkibiisi back-to-menu" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br>
+    🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
+    <span class="transpose-buttons" data-video-id="video-kaijasjarves-aija-kalua">
+      <button class="transpose-button" data-src="https://archive.org/download/kaijasjarves/Kaijasjarves-5.m4v">-5</button>
+      <button class="transpose-button" data-src="https://archive.org/download/kaijasjarves/Kaijasjarves-3.m4v">-3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/kaijasjarves/Kaijasjarves-2.m4v">-2</button>
+      <button class="transpose-button active" data-src="https://archive.org/download/kaijasjarves/Kaijasjarves.m4v">0</button>
+      <button class="transpose-button" data-src="https://archive.org/download/kaijasjarves/Kaijasjarves%2B2.m4v">+2</button>
+      <button class="transpose-button" data-src="https://archive.org/download/kaijasjarves/Kaijasjarves%2B3.m4v">+3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/kaijasjarves/Kaijasjarves%2B5.m4v">+5</button>
+    </span>
+    &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
+    <a class="archive-link" href="https://archive.org/details/kaijasjarves" target="_blank" rel="noopener noreferrer">Avaa Internet Archivessa</a>
+  </div>
+  <div class="song-body">
+Perinteinen venäläinen tshastuska, jonka loputtomissa säkeissä aiheena on oma mielitietty ja rakkaus. Aikoinaan nämä olivat ns. rohkeita lauluja, kun siellä lauletaan myös kapakoista, viinanjuonnista ja erotiikasta jopa niin suoraan, että polvella istutaan ja suukkoja annetaan. Hyi, sentään. Tshastuskoissahan ei yleensä ole vain yhtä tarinaa, vaan sirpaleisia säkeitä, joissa lauletaan näistä pariutumisteemoista. Niin tässäkin.
+
+    <div class="divider-symbol">
+      <img src="uhtuan-lintu_punainen_PNG_V3.png" alt="Lintuornamentti">
+    </div>
+
+Perindehelline ven’alane častuška, kumbazen loppumattomissa sanoissa tiemana on oma tietto da armahus. Ennen vanhah moizet pajot oldih muga sanotut rohkiet pajot, sentäh kun niissä pajatetah i kabakoista, viinanjuonnasta da erotikasta niingi suorah, što niissä polvella issutah da suuda annetah. Hyh, midä kaikkie! Častuškoissa jo tavan mugah ei ole vain yhtä starinua, a starinan palazie, kumbazissa pajatetah näistä puaranvalličendatiemoista. Moine on tämägi pajo.
+  </div>
+  <p class="song-footer">
+Karaokesäestys KarjalaBrihat | Heikki Kuikka - kitara, taustalaulu | Pentti Mäkkeli - taustalaulu | Pekka Jolkkonen - haitari | Miika Mustonen - rummut | Äänittänyt, miksannut ja masteroinut Antti Heikkilä<br>
+Kuvitus ja leikkaus Jussi Sinkkonen | Animointi Jussi Sinkkonen<br>
+Kuvaleikkeet Mikko Lauronen | Otteita Häidenvietto Karjalan runomailla -elokuvasta Kalevala-seura
+  </p>
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+</div>
+
+<!-- 8 -->
+<div class="video-item" id="karjalan-kumbuzil">
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+  <div class="song-header">
+    <div class="song-number">8.</div>
+    <h1>Karjalan kumbuzil</h1>
+    <div class="artist">(säestys Hannu ja Iivo Brelo)</div>
+    <div class="credits-line">säv. trad., karj. san. Iivo Härkönen</div>
+  </div>
+  <div class="video-wrapper">
+    <video id="video-karjalan-kumbuzil" controls preload="metadata" playsinline>
+      <source src="https://archive.org/download/karjalankumbuzil/Karjalankumbuzil.m4v" type="video/mp4">
+    </video>
+  </div>
+  <div class="transponoinnit">
+    <a class="linkkibiisi back-to-menu" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br>
+    🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
+    <span class="transpose-buttons" data-video-id="video-karjalan-kumbuzil">
+      <button class="transpose-button" data-src="https://archive.org/download/karjalankumbuzil/Karjalankumbuzil-5.m4v">-5</button>
+      <button class="transpose-button" data-src="https://archive.org/download/karjalankumbuzil/Karjalankumbuzil-3.m4v">-3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/karjalankumbuzil/Karjalankumbuzil-2.m4v">-2</button>
+      <button class="transpose-button active" data-src="https://archive.org/download/karjalankumbuzil/Karjalankumbuzil.m4v">0</button>
+      <button class="transpose-button" data-src="https://archive.org/download/karjalankumbuzil/Karjalankumbuzil%2B2.m4v">+2</button>
+      <button class="transpose-button" data-src="https://archive.org/download/karjalankumbuzil/Karjalankumbuzil%2B3.m4v">+3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/karjalankumbuzil/Karjalankumbuzil%2B5.m4v">+5</button>
+    </span>
+    &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
+    <a class="archive-link" href="https://archive.org/details/karjalankumbuzil" target="_blank" rel="noopener noreferrer">Avaa Internet Archivessa</a>
+  </div>
+  <div class="song-body">
+Karjalan kunnailla on tunnetuimpia ja levytetyimpiä suomalaisia Karjala-aiheisia lauluja. Kirjailija Valter Juvan sanoitus vuodelta 1902 edustaa romanttista karelianismia. Sotien aluemenetysten myötä laulu sai uutta surumielisempää pohjavirettä. Laulun karjalankieliset sanat on laatinut suistamolainen kirjailija ja karjalaisen kansanperinteen kerääjä Iivo Härkönen. Laulun melodia on nyttemmin päätynyt Karjalan tasavallan viralliseksi kansallishymniksi.
+
+    <div class="divider-symbol">
+      <img src="uhtuan-lintu_punainen_PNG_V3.png" alt="Lintuornamentti">
+    </div>
+
+Karjalan kunnailla kuuluu tunnettuih šuomelaisih laululoih, mistä on luajittu monie levytykšie. Kirjailija Valter Juvan kirjutetut laulunšanat vuuvvelta 1902 simvolisoi romanttista karelianismie. Sotien kotialovehien kavottamisen jälkeh laulu šai uutta šurumielisempyä merkityštä. Laulun karjalankieliset šanat on luatin šuistamolaini kirjailija ta karjalaisen rahvahanperintehen keryäjä Iivo Härkönen. Nykyjäh laulun melodija on piätyn Karjalan tašavallan virallisekši kanšallisgimnikši.
+  </div>
+  <p class="song-footer">
+Karaokesäestys uudelleenmiksattu albumilta Urai Matkuniekka (2004)<br>
+Mika Tarkkonen - haitari | Juha Luoma - basso | Jaakko Kääriäinen - kitara<br>
+Sanna Pölönen - viulu | Iivo Brelo - saksofoni (karaokesäestys)<br>
+Sovittanut Mika Tarkkonen | Masteroinut JP Mönkkönen | Tuottanut Hannu Brelo<br>
+Äänittänyt ja miksannut Mika Tarkkonen | Karaokemiksaus ja masterointi Jussi Sinkkonen<br>
+Kuvitus Jussi Sinkkonen | Kuvaus Joonas Gavrilov, Jussi Sinkkonen<br>
+Leikkaus ja animointi Jussi Sinkkonen<br>
+Kuvaleikkeet "Koli" / Aarne Pietinen Oy / Historian kuvakokoelma Matkailun edistämiskeskuksen kokoelma / Museovirasto
+  </p>
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+</div>
+
+<!-- 9 -->
+<div class="video-item" id="karjalani-rahvas">
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+  <div class="song-header">
+    <div class="song-number">9.</div>
+    <h1>Karjalani rahvas</h1>
+    <div class="artist">(säestys Hannu Brelo)</div>
+    <div class="credits-line">säv. &amp; san. Vanja Tallas</div>
+  </div>
+  <div class="video-wrapper">
+    <video id="video-karjalani-rahvas" controls preload="metadata" playsinline>
+      <source src="https://archive.org/download/karjalanirahvas/Karjalanirahvas.m4v" type="video/mp4">
+    </video>
+  </div>
+  <div class="transponoinnit">
+    <a class="linkkibiisi back-to-menu" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br>
+    🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
+    <span class="transpose-buttons" data-video-id="video-karjalani-rahvas">
+      <button class="transpose-button" data-src="https://archive.org/download/karjalanirahvas/Karjalanirahvas-5.m4v">-5</button>
+      <button class="transpose-button" data-src="https://archive.org/download/karjalanirahvas/Karjalanirahvas-3.m4v">-3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/karjalanirahvas/Karjalanirahvas-2.m4v">-2</button>
+      <button class="transpose-button active" data-src="https://archive.org/download/karjalanirahvas/Karjalanirahvas.m4v">0</button>
+      <button class="transpose-button" data-src="https://archive.org/download/karjalanirahvas/Karjalanirahvas%2B2.m4v">+2</button>
+      <button class="transpose-button" data-src="https://archive.org/download/karjalanirahvas/Karjalanirahvas%2B3.m4v">+3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/karjalanirahvas/Karjalanirahvas%2B5.m4v">+5</button>
+    </span>
+    &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
+    <a class="archive-link" href="https://archive.org/details/karjalanirahvas" target="_blank" rel="noopener noreferrer">Avaa Internet Archivessa</a>
+  </div>
+  <div class="song-body">
+Suojärven Kuikkaniemellä syntyneen Vanja Trofimovin (myöh. Tallas, 1876-1952) tekemä Karjalani rahvas on Reppurin laulun ohella vanhimpia karjalankielisiä sävellettyjä lauluja. Trofimov kirjoitti sävelmän lahjaksi tyttärelleen Suomen itsenäistymisen jälkeen, kun pääsy Venäjän puoleisiin karjalaiskyliin vaikeutui. Karjalani rahvas on levytetty kymmenisen kertaa ja se on suosituimpia karjalaisten illanviettojen lauluja. Laulun tekee poikkeukselliseksi myös se, että se on selkeästi suomenkarjalainen teos. Sitä ei tunneta Venäjän Karjalassa kuten monet muut vanhat karjalaislaulut, jotka ovat sävelminä itse asiassa kotoisin Venäjältä.
+
+    <div class="divider-symbol">
+      <img src="uhtuan-lintu_punainen_PNG_V3.png" alt="Lintuornamentti">
+    </div>
+
+Suojärven Kuikkaniemessä syndynyön Van’a Trofimovan (myöh. Tallas 1876–1952) luajittu Karjalani rahvas on yhessä Reppulin laulun kera vanhimbie karjalankielizie sävellettylöi pajoloi. Trofimov kirjutti sen lahjaksi omalla tyttärellä Suomen iččenäistymizen jälgeh, kun Ven’an puolella jiänyzih karjalazien kylih oli jygiembi piässä. Karjalani rahvas on iänitetty diskalla nenga kymmenen kerdua, da se on karjalazien illaččuloin armahimbie pajoloi. Pajo on ainavoluadune sengi täh, kun se selgieh on suomenkarjalane tevos. Se ei ole tundiettu Ven’an Karjalassa toizin kuin monet muut karjalazet pajot, kumbazien sävelmät totta sanuo on luajittu Ven’alla.
+  </div>
+  <p class="song-footer">
+Karaokesäestys uudelleenmiksattu albumilta Urai Matkuniekka (2004)<br>
+Mika Tarkkonen - haitari | Juha Luoma - basso | Jaakko Kääriäinen - kitara<br>
+Mikael Kienokoski - rummut<br>
+Sovittanut Mika Tarkkonen | Masteroinut JP Mönkkönen | Tuottanut Hannu Brelo<br>
+Äänittänyt ja miksannut Mika Tarkkonen | Karaokemiksaus Jussi Sinkkonen<br>
+Kuvitus, leikkaus ja animointi Jussi Sinkkonen<br>
+Kuvaleikkeet | Olga Karlova, Timoi Munne, Pia Viherma-Iso-Mustajärvi<br>
+karjalankartat.fi | "pirtin ikkunassa" / Inha, I. K. / Suomalais-ugrilainen kuvakokoelma / Museovirasto | Otteita Häidenvietto Karjalan runomailla -elokuvasta / Kalevala-seura
+  </p>
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+</div>
+
+<!-- 10 -->
+<div class="video-item" id="kylyni">
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+  <div class="song-header">
+    <div class="song-number">10.</div>
+    <h1>Kylyni</h1>
+    <div class="artist">KALEVALAN KANSANLAULURYHMÄ</div>
+    <div class="credits-line">säv. &amp; san. Valentina Saburova</div>
+  </div>
+  <div class="video-wrapper">
+    <video id="video-kylyni" controls preload="metadata" playsinline>
+      <source src="https://archive.org/download/kylyni/Kylyni.m4v" type="video/mp4">
+    </video>
+  </div>
+  <div class="transponoinnit">
+    <a class="linkkibiisi back-to-menu" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br>
+    🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
+    <span class="transpose-buttons" data-video-id="video-kylyni">
+      <button class="transpose-button" data-src="https://archive.org/download/kylyni/Kylyni-5.m4v">-5</button>
+      <button class="transpose-button" data-src="https://archive.org/download/kylyni/Kylyni-3.m4v">-3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/kylyni/Kylyni-2.m4v">-2</button>
+      <button class="transpose-button active" data-src="https://archive.org/download/kylyni/Kylyni.m4v">0</button>
+      <button class="transpose-button" data-src="https://archive.org/download/kylyni/Kylyni%2B2.m4v">+2</button>
+      <button class="transpose-button" data-src="https://archive.org/download/kylyni/Kylyni%2B3.m4v">+3</button>
+    </span>
+    &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
+    <a class="archive-link" href="https://archive.org/details/kylyni" target="_blank" rel="noopener noreferrer">Avaa Internet Archivessa</a>
+  </div>
+  <div class="song-body">
+Vienankarjalaksi kirjoitettu kylyni on monitoimisen Valentina Saburovan sävellys ja sanoitus. Saburova toimii Vienassa Kalevalan kansanteatterin ja kansanlauluryhmän vetäjänä. Tässä laulussa ollaan Kuittijärven rannalla leppoisissa kylpytunnelmissa.
+
+    <div class="divider-symbol">
+      <img src="uhtuan-lintu_punainen_PNG_V3.png" alt="Lintuornamentti">
+    </div>
+
+Vienankarjalakši kirjutettu Kylyni on moninerosen Valentina Saburovan luajoš. Saburova ruatau Vienassa Kalevalan rahvahanteatterin ta rahvahanlaulujoukon vetäjänä. Täššä laulušša ollah Kuittijärven rannalla lupšakoissa kylytunnelmissa.
+  </div>
+  <p class="song-footer">
+Karaokesäestys uudelleenmiksattu albumilta Kotitaloni (2019)<br>
+Kymmenhenkistä Kalevala-kansanlauluryhmää johtaa Valentina Saburova<br>
+Sergei Gromov - haitari<br>
+Tuottanut Uhtua-Seura | Äänittänyt Grigori Arhipov<br>
+Kuvitus, kuvaus, leikkaus ja animointi Jussi Sinkkonen<br>
+Esiintyjät ja kuvausavustajat Jehki Potkonen. Kuu Unimetsä, Uuna Kainulainen,<br>
+Jani Martikainen, Kiira Parikka<br>
+Kuvaleikkeet Reijo Sihvonen / Uhtua-seura
+  </p>
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+</div>
+
+<!-- 11 -->
+<div class="video-item" id="kyla-vuotti-uutta-kuuta">
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+  <div class="song-header">
+    <div class="song-number">11.</div>
+    <h1>Kylä vuotti uutta kuuta</h1>
+    <div class="artist">(säestys Rälläkkä)</div>
+  </div>
+  <div class="video-wrapper">
+    <video id="video-kyla-vuotti-uutta-kuuta" controls preload="metadata" playsinline>
+      <source src="https://archive.org/download/kylavuotti/Kylavuotti.m4v" type="video/mp4">
+    </video>
+  </div>
+  <div class="transponoinnit">
+    <a class="linkkibiisi back-to-menu" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br>
+    🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
+    <span class="transpose-buttons" data-video-id="video-kyla-vuotti-uutta-kuuta">
+      <button class="transpose-button" data-src="https://archive.org/download/kylavuotti/Kylavuotti-5.m4v">-5</button>
+      <button class="transpose-button" data-src="https://archive.org/download/kylavuotti/Kylavuotti-3.m4v">-3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/kylavuotti/Kylavuotti-2.m4v">-2</button>
+      <button class="transpose-button active" data-src="https://archive.org/download/kylavuotti/Kylavuotti.m4v">0</button>
+      <button class="transpose-button" data-src="https://archive.org/download/kylavuotti/Kylavuotti%2B2.m4v">+2</button>
+      <button class="transpose-button" data-src="https://archive.org/download/kylavuotti/Kylavuotti%2B3.m4v">+3</button>
+    </span>
+    &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
+    <a class="archive-link" href="https://archive.org/details/kylavuotti" target="_blank" rel="noopener noreferrer">Avaa Internet Archivessa</a>
+  </div>
+  <div class="song-body">
+Laulu liittyy karjalaisessa hääseremoniassa siihen vaiheeseen kun sulhanen tuo mukanaan morsiamensa kotiinsa. Morsian polvistuu appinsa ja anoppinsa eteen, jonka jälkeen nousee siitä. Laulun on laulanut sulhasen sisar; tässähän lauletaan että ”veijo (veli) tuli vesi läikkyi”. Alku ”kylä vuotti uutta kuuta” viitannee tapaan, jonka mukaan naimisiin tuli mennä kasvavan kuun aikaan, koska kasvava kuu on otollinen uusien asioiden aloittamiselle.
+
+    <div class="divider-symbol">
+      <img src="uhtuan-lintu_punainen_PNG_V3.png" alt="Lintuornamentti">
+    </div>
+
+Laulu liittyy karjalaisešša hiäritualissa šiih kohtah, konša šulhani tuou oman moršiemen kotih. Moršien rupieu polvillah tuattoukon ta muamakan eteh, min jälkeh šiitä noušou. Laulun on laulan šulhasen čikko; täššä vet lauletah, jotta ”veikko tuli vesi läikky”. Alku ” kylä vuotti uutta kuuta”, juohattanou tapah kumpasen mukah yhteh piti männä šentäh, kun kašvajan kuun aika paššuau uušien tielojen alottamisella.
+  </div>
+  <p class="song-footer">
+Karaokesäestys Rälläkkä | Marko Kotilainen - harmonikka | Piritta Gröhn - viulu<br>
+Niko Pentikäinen - kielisoittimet | Tuomo Jukkala - basso | Jussi Kukkonen - perkussiot Sovittanut Marko Kotilainen | Äänittänyt, miksannut ja masteroinut Antti Heikkilä<br>
+Kuvitus, leikkaus, kuvaus ja animointi Jussi Sinkkonen<br>
+Kuvaleikkeet “Kakrapokot: naapurit itkevät yksin jääneelle moamolle” / Inha, I. K. / Suomalais-ugrilainen kuvakokoelma / Museovirasto | Otteita Häidenvietto Karjalan runomailla -elokuvasta / Kalevala-seura | Free Creative Stuff / pexels.com
+  </p>
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+</div>
+
+<!-- 12 -->
+<div class="video-item" id="maman-kevatpajoine">
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+  <div class="song-header">
+    <div class="song-number">12.</div>
+    <h1>Maman kevätpajoine</h1>
+    <div class="artist">SATTUMA</div>
+    <div class="credits-line">säv. Arto Rinne, san. Zinaida Dubinina</div>
+  </div>
+  <div class="video-wrapper">
+    <video id="video-maman-kevatpajoine" controls preload="metadata" playsinline>
+      <source src="https://archive.org/download/mamankevat/Mamankevat.m4v" type="video/mp4">
+    </video>
+  </div>
+  <div class="transponoinnit">
+    <a class="linkkibiisi back-to-menu" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br>
+    🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
+    <span class="transpose-buttons" data-video-id="video-maman-kevatpajoine">
+      <button class="transpose-button" data-src="https://archive.org/download/mamankevat/Mamankevat-5.m4v">-5</button>
+      <button class="transpose-button" data-src="https://archive.org/download/mamankevat/Mamankevat-3.m4v">-3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/mamankevat/Mamankevat-2.m4v">-2</button>
+      <button class="transpose-button active" data-src="https://archive.org/download/mamankevat/Mamankevat.m4v">0</button>
+      <button class="transpose-button" data-src="https://archive.org/download/mamankevat/Mamankevat%2B2.m4v">+2</button>
+      <button class="transpose-button" data-src="https://archive.org/download/mamankevat/Mamankevat%2B3.m4v">+3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/mamankevat/Mamankevat%2B5.m4v">+5</button>
+    </span>
+    &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
+    <a class="archive-link" href="https://archive.org/details/mamankevat" target="_blank" rel="noopener noreferrer">Avaa Internet Archivessa</a>
+  </div>
+  <div class="song-body">
+Petroskoilainen Sattuma on Arto Rinteen johtama ystävällinen, sympaattinen kokoonpano, joka on 2000-luvulla ehtinyt kiertää monia maailman maita ja isoja festivaaleja. Taustalla on unelma nähdä uusia paikkoja ja kohdata ihmisiä musisoiden yhdessä oman perheen kanssa. Mukana ovat olleet viulistit Vladik Djomin ja Eila Rinne sekä tässä laulussa vieraillut Timo Rinne. Maman kevätpajoine on Arto Rinteen säveltämä ja livvinkarjalaiset sanat on kirjoittanut kotkatjärveläinen opettaja ja runoilija Zinaida Dubinina. Omistettu kaikille äideille!
+
+    <div class="divider-symbol">
+      <img src="uhtuan-lintu_punainen_PNG_V3.png" alt="Lintuornamentti">
+    </div>
+
+Petroskoilaine Sattuma Arto Rindien johtol on ystävälline, simpatičnoi yhtyveh, kudai on täl 2000-luvul ehtinyh kierdiä monii muailman mualoi da suurii festivualiloi. Taga-alal on huaveh nähtä uuzii paikkoi, vastata rahvastu da yhteltiedy soittua muuzikkua yhtes oman perehen ker. Keral ollah oldu skripačut Vladik Djomin da Eila Rinne, da tädä pajuo ezittäjes vie Timo Rinne. Maman kevätpajozen on säveldännyh Arto Rinne da livvinkarjalakse sanat on kirjutannuh kotkatjärveläine opastai da runoniekku Zinaida Dubinina. Pajoine on omistettu kaikile muamoloile!
+  </div>
+  <p class="song-footer">
+Karaokesäestys uudelleenmiksattu albumilta Uuzi Kodi (2014)<br>
+Arto Rinne - kitara,mandoliini, haitari | Vlad Djomin - viulu | Artjom Undalov - basso<br>
+Igor Saharov - lyömäsoittimet<br>
+Sovittanut Sattuma | Tuottanut Museo perheelle -projekti<br>
+Alkuperäinen äänitys ja miksaus Grigori Arhipov<br>
+Kuvitus, leikkaus, kuvaus ja animointi Jussi Sinkkonen | Esiintyjä Leila Örn<br>
+Kuvaleikkeet | Inha, I. K. / Suomalaisen Kirjallisuuden Seuran arkisto<br>
+Kiitokset Kukkakuhhaus / Karjalan Ruusu, Rääkkylä
+  </p>
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+</div>
+
+<!-- 13 -->
+<div class="video-item" id="metrolla-buabon-luo">
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+  <div class="song-header">
+    <div class="song-number">13.</div>
+    <h1>Metrolla buabon luo</h1>
+    <div class="artist">KRISTIINA OLANTO &amp; LEKKUJAD</div>
+    <div class="credits-line">säv. Soili Perkiö, san. Hannele Huovi, karj. san. Katerina Paalamo</div>
+  </div>
+  <div class="video-wrapper">
+    <video id="video-metrolla-buabon-luo" controls preload="metadata" playsinline>
+      <source src="https://archive.org/download/metrolla/Metrolla.m4v" type="video/mp4">
+    </video>
+  </div>
+  <div class="transponoinnit">
+    <a class="linkkibiisi back-to-menu" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br>
+    🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
+    <span class="transpose-buttons" data-video-id="video-metrolla-buabon-luo">
+      <button class="transpose-button" data-src="https://archive.org/download/metrolla/Metrolla-5.m4v">-5</button>
+      <button class="transpose-button" data-src="https://archive.org/download/metrolla/Metrolla-3.m4v">-3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/metrolla/Metrolla-2.m4v">-2</button>
+      <button class="transpose-button active" data-src="https://archive.org/download/metrolla/Metrolla.m4v">0</button>
+      <button class="transpose-button" data-src="https://archive.org/download/metrolla/Metrolla%2B2.m4v">+2</button>
+      <button class="transpose-button" data-src="https://archive.org/download/metrolla/Metrolla%2B3.m4v">+3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/metrolla/Metrolla%2B5.m4v">+5</button>
+    </span>
+    &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
+    <a class="archive-link" href="https://archive.org/details/metrolla" target="_blank" rel="noopener noreferrer">Avaa Internet Archivessa</a>
+  </div>
+  <div class="song-body">
+Monissa karjalaisissa lauluissa tehdään matkaa jalan, veneellä tai hevosella. Vaan tässäpä ei. Nykyaikana monet karjalankieliset asuvat toki kaupungeissa, eivätkä missään kotiseutumuseoissa. Mummollaan tässä ollaan matkalla, mutta ei pyöräilemällä. Ensin kyytiä antaa raitiovaunu, sitten mennään liukuportaita metroon ja metrolla mummin luo.
+Kristiina Olanto levytti albumillisen lastenlauluja eri kääntäjien teksteihin. Levyn julkaisi melkeinpä viimeisenä tuotantonaan Karjalan Kielen Seura vuonna 2019. Alkuperäinen teksti on Hannele Huovin ja käännös Katerina Paalamon. Kristiina Olanto on julkaissut aiemminkin karjalankielistä musiikkia, kuten myös siskonsa Johanna Koukkunen sekä heidän vanhempansakin.
+
+    <div class="divider-symbol">
+      <img src="uhtuan-lintu_punainen_PNG_V3.png" alt="Lintuornamentti">
+    </div>
+
+Monissa karjalaisissa laululoissa matatah aštumalla, venehellä tahi heposella. Ka täššä vet ei. Nykyjäh monet karjalankieliset eletäh ni linnašša, eikä missä lienöy kotišeutumuseiloissa. Täššä matatah buabon tahikka ämmön luokše, ka ei polkupyörällä. Alkuh kyyjittäy tramvainvaunu, šiitä männäh liukuportahie myöte metroh ta metrolla ämmön luo.
+Kristiina Olanto levytti kokonaisen al’boman lapšienlauluja eri kiäntäjien tekstilöih. Levyn julkaisi melkein viimesenä tuotantonah Karjalan Kielen Šeura vuotena 2019. Alkuperäni teksti on Hannele Huovin ta kiännöš Katerina Paalamon. Kristiina Olanto on aijempahki julkistan karjalankielistä musiikkie, kuin ni hänen čikko Johanna Koukkunen šekä heijän vanhemmat.
+  </div>
+  <p class="song-footer">
+Bändin kotisivu: http://www.lekkujad.com/<br>
+Karaokesäestys uudelleenmiksattu albumilta Metrolla buabon luo (2019)<br>
+Julius Heikkilä - kitara | Ville Rauhala - kontrabasso | Tom Nekljudow - rummut<br>
+Tuottanut Heini Karjalainen | Äänittänyt ja miksannut Reima Tuovinen, Maailman Musiikin Keskus | Karaokemiksaus Reima Tuovinen ja Antti Heikkilä<br>
+Karaokemasterointi Antti Heikkilä
+  </p>
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+</div>
+
+<!-- 14 -->
+<div class="video-item" id="mina-mustan">
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+  <div class="song-header">
+    <div class="song-number">14.</div>
+    <h1>Minä mustan</h1>
+    <div class="artist">(säestys KarjalaBrihat)</div>
+    <div class="credits-line">säv. &amp; san. Aleksandr Saveljev</div>
+  </div>
+  <div class="video-wrapper">
+    <video id="video-mina-mustan" controls preload="metadata" playsinline>
+      <source src="https://archive.org/download/minamustan/Minamustan.m4v" type="video/mp4">
+    </video>
+  </div>
+  <div class="transponoinnit">
+    <a class="linkkibiisi back-to-menu" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br>
+    🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
+    <span class="transpose-buttons" data-video-id="video-mina-mustan">
+      <button class="transpose-button" data-src="https://archive.org/download/minamustan/Minamustan-5.m4v">-5</button>
+      <button class="transpose-button" data-src="https://archive.org/download/minamustan/Minamustan-3.m4v">-3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/minamustan/Minamustan-2.m4v">-2</button>
+      <button class="transpose-button active" data-src="https://archive.org/download/minamustan/Minamustan.m4v">0</button>
+      <button class="transpose-button" data-src="https://archive.org/download/minamustan/Minamustan%2B2.m4v">+2</button>
+      <button class="transpose-button" data-src="https://archive.org/download/minamustan/Minamustan%2B3.m4v">+3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/minamustan/Minamustan%2B5.m4v">+5</button>
+    </span>
+    &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
+    <a class="archive-link" href="https://archive.org/details/minamustan" target="_blank" rel="noopener noreferrer">Avaa Internet Archivessa</a>
+  </div>
+  <div class="song-body">
+Minä mustan on Prääsässä asuvan Aleksandr Saveljevin tunnetuin laulu. Sen kaunis melodia ja lämpimät kotiseuturakkautta, äidinkieltä ja vanhempien arvostusta kuvaavat sanat ovat herättäneet tunteita kaikkialla karjalankielisten parissa. Laulu tunnetaan sekä Venäjän Karjalassa että Suomessa ja se löytyy monen esittäjän ja esiintyjäryhmän ohjelmistosta
+
+    <div class="divider-symbol">
+      <img src="uhtuan-lintu_punainen_PNG_V3.png" alt="Lintuornamentti">
+    </div>
+
+Minä mustan on Priäžäs eläjän Aleksandr Saveljevan tundietumbi pajo. Sen čoma meloudii da lämmät oman kodirannan, muamankielen da vahnembien kunnivoičustu kuvuajat sanat ollah kosketettu karjalakse maltajua rahvasta kaikil čuril. Pajo tietäh kui Ven’an Karjalas, mugai Suomes da äijät pajattajat da ansambl’at da horat sidä pajatetah.
+  </div>
+  <p class="song-footer">
+Karaokesäestys KarjalaBrihat | Heikki Kuikka - kitara, taustalaulu | Pentti Mäkkeli - taustalaulu | Pekka Jolkkonen - haitari | Miika Mustonen - rummut | Äänittänyt, miksannut ja masteroinut Antti Heikkilä<br>
+Kuvitus, leikkaus ja animointi Jussi Sinkkonen | Kuvaus Jussi Sinkkonen, Joonas Gavrilov Esiintyjä Tommi Tiihtarinen<br>
+Kuvaleikkeet Heta Nevalainen, Ari-Pekka Miettinen | Otteita Häidenvietto Karjalan runomailla -elokuvasta / Kalevala-seura "kaksi karjalaista tyttöä kansanpuvuissaan" / Inha, I. K. / Historian kuvakokoelma Matkailun edistämiskeskuksen kokoelma / Museovirasto<br>
+Kiitokset Kulttuuritehdas Siihtala<br>
+Heikki Liimatalle kiitos tuohihatusta!
+  </p>
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+</div>
+
+<!-- 15 -->
+<div class="video-item" id="oman-muan-tuli">
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+  <div class="song-header">
+    <div class="song-number">15.</div>
+    <h1>Oman muan tuli</h1>
+    <div class="artist">FOLKSWAGEN</div>
+    <div class="credits-line">säv. &amp; san. Olli Nannula</div>
+  </div>
+  <div class="video-wrapper">
+    <video id="video-oman-muan-tuli" controls preload="metadata" playsinline>
+      <source src="https://archive.org/download/omanmuantuli/Omanmuantuli.m4v" type="video/mp4">
+    </video>
+  </div>
+  <div class="transponoinnit">
+    <a class="linkkibiisi back-to-menu" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br>
+    🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
+    <span class="transpose-buttons" data-video-id="video-oman-muan-tuli">
+      <button class="transpose-button" data-src="https://archive.org/download/omanmuantuli/Omanmuantuli-3.m4v">-3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/omanmuantuli/Omanmuantuli-2.m4v">-2</button>
+      <button class="transpose-button active" data-src="https://archive.org/download/omanmuantuli/Omanmuantuli.m4v">0</button>
+      <button class="transpose-button" data-src="https://archive.org/download/omanmuantuli/Omanmuantuli%2B2.m4v">+2</button>
+      <button class="transpose-button" data-src="https://archive.org/download/omanmuantuli/Omanmuantuli%2B3.m4v">+3</button>
+    </span>
+    &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
+    <a class="archive-link" href="https://archive.org/details/omanmuantuli" target="_blank" rel="noopener noreferrer">Avaa Internet Archivessa</a>
+  </div>
+  <div class="song-body">
+Olli Nannula (Oleg Bobin, 1968-2006) oli aunuslainen lauluntekijä, muusikko ja näyttelijä. Hänen yhtyeensä Kevään lapset oli toiminnassa vuosituhannen alkuvuosina. Yhtye ei saanut julkaistuksi varsinaista albumia. Yksi levytys oli jo saatu valmiiksi, mutta se tuhoutui Myllärit-yhtyeen studion tulipalossa Petroskoissa. Kevään lapsilta jäi jälkeen vain joitain harjoitusnauhoituksia ja keikkatallenteita. Pohjois-Karjalassa yhtye esiintyi pari kertaa.
+Olli Nannula kirjoitti lauluja suomeksi, venäjäksi ja karjalaksi. Hänen tunnetuin laulunsa on joensuulaisen Folkswagen-yhtyeen levyttämä Oman muan tuli. Se on isänmaallinen vaikka samaan aikaan katkera uljas laulu karjalaisen kansan kotiseudusta. Tämä karaoke-versio on Folkswagen-yhtyeen keväällä 2021 tekemä uusi äänite.
+
+    <div class="divider-symbol">
+      <img src="uhtuan-lintu_punainen_PNG_V3.png" alt="Lintuornamentti">
+    </div>
+
+Olli Nannula (Oleg Bobin, 1968-2006) oli anukselaine pajonluadii, muzikantu da ozuttelii. Hänen joukkoveh Kevään lapset oli ruadanuh vuozituhanden alguvuozinnu. Bändi ei jullannuh varzinastu al’bomua. Yksi al’bomu oli suadu valmehekse, ga se rikkovui Myllärit-bändin stuudien tulipalos Petroskoil. Bändi jätti jälgeh vai harjaituskirjutuksii kasietale da live-iänittehii. Pohjas-Karjalas bändi ozutteli erähii kerdoi.
+Olli Nannula kirjutti pajoloi suomekse, ven’akse da karjalakse. Hänen kuulužin pajo on jovensuulazen Folkswagen-bändin luajittu Oman muan tuli. Se on ižänmualline, hos samah aigah kibei da komakku pajo karjalazen rahvahan kodirannas. Tämä karaoke-versii on Folkswagen-bändin keviäl 2021 luajittu uuzi iäniteh. Meih kaččou puhtas taivas.
+  </div>
+  <p class="song-footer">
+Karaokesäestys Folkswagen (2021) | Jari Lappalainen - kitara, bouzuki, lyömäsoittimet<br>
+Joonas Ojajärvi - basso, mandoliini | Äänittänyt, miksannut ja masteroinut Antti Heikkilä<br>
+Kuvitus, leikkaus ja animointi Jussi Sinkkonen | Kuvaleikkeet Timoi Munne
+  </p>
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+</div>
+
+<!-- 16 -->
+<div class="video-item" id="petroskoi">
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+  <div class="song-header">
+    <div class="song-number">16.</div>
+    <h1>Petroskoi</h1>
+    <div class="artist">MYLLÄRIT</div>
+    <div class="credits-line">säv.&amp; san. Iivan L’jovkin</div>
+  </div>
+  <div class="video-wrapper">
+    <video id="video-petroskoi" controls preload="metadata" playsinline>
+      <source src="https://archive.org/download/petroskoi-karaoke/Petroskoi.m4v" type="video/mp4">
+    </video>
+  </div>
+  <div class="transponoinnit">
+    <a class="linkkibiisi back-to-menu" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br>
+    🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
+    <span class="transpose-buttons" data-video-id="video-petroskoi">
+      <button class="transpose-button" data-src="https://archive.org/download/petroskoi-karaoke/Petroskoi-5.m4v">-5</button>
+      <button class="transpose-button" data-src="https://archive.org/download/petroskoi-karaoke/Petroskoi-3.m4v">-3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/petroskoi-karaoke/Petroskoi-2.m4v">-2</button>
+      <button class="transpose-button active" data-src="https://archive.org/download/petroskoi-karaoke/Petroskoi.m4v">0</button>
+      <button class="transpose-button" data-src="https://archive.org/download/petroskoi-karaoke/Petroskoi%2B2.m4v">+2</button>
+      <button class="transpose-button" data-src="https://archive.org/download/petroskoi-karaoke/Petroskoi%2B3.m4v">+3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/petroskoi-karaoke/Petroskoi%2B5.m4v">+5</button>
+    </span>
+    &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
+    <a class="archive-link" href="https://archive.org/details/petroskoi-karaoke" target="_blank" rel="noopener noreferrer">Avaa Internet Archivessa</a>
+  </div>
+  <div class="song-body">
+Neuvostoliittolainen valtiollinen Kantele-yhtye tilasi vuonna 1959 karjalaiselta kuoromieheltä Iivana Ljovkinilta joukon iskeviä ja populaareja kappaleita ohjelmistoonsa. Yksi näistä oli Petroskoi, joka kuvasi neuvostokarjalaista yhteiskunnallista edistystä, maanteiden raivaamista ja sosialistisen elon onnellisuutta. Uuden elämän kappale sai Myllärit-yhtyeen ensimmäisellä albumilla Eta pravda (1997). Samalla yhtye uudisti tasavallan koko kansanmusiikkielämän tekemällä vauhdikkaista kansansävelmistä suuretkin kansainväliset festarit valloittavia versioita. Ehkä vuosikymmenet ovat tuoneet laulun kehitysuskoon lempeää ironiaa.
+
+    <div class="divider-symbol">
+      <img src="uhtuan-lintu_punainen_PNG_V3.png" alt="Lintuornamentti">
+    </div>
+
+Neuvostoliittolane valdivolline Kantele-yhtyveh tilai vuodena 1959 karjalazelda horamieheldä Iivana L’ovkinalda omah ohjelmistoh joukon iskijöi da popul’arizie pajoloi. Yksi niistä oli Petroskoi, kumbane kuvuau neuvostokarjalaista yhtehiskunnallista kehitystä, dorogoin luajindua da ozakasta sozialistista elosta. Kappaleh sai uuven elännän Myllärit-yhtyvehen enzimäzellä al’bomalla Eta pravda (1997). Yhellä kerdua yhtyveh uuvisti tazavallan kogo rahvahanmuuzikkua da luadi vauhikkahista rahvahanpajoloista suuriegi kanzoinvälizie festivualiloi vallottajie versielöi. Onnakko vuozikymmenet ollah tuodu pajon kehitysuskoh kebiedä ironieda.
+  </div>
+  <p class="song-footer">
+Karaokesäestys uudelleenmiksattu albumilta Eta Pravda (1997) | Aleksandr Bykadorov - kitara | Arto Rinne - mandoliini, huuliharppu | Tanja Umnjakova - viulu | Dima Djomin - puhaltimet | Andrei Varkentin - kontrabasso | Hanna Järvi - viulu (karaokesäestys)<br>
+Sovittanut Aleksandr Bykadorov - Myllärit | Masteroinut Pauli Saastamoinen, Finnvox Tuottanut Sari Kaasinen | Äänittänyt Matti Kontio | Miksannut Risto Hemmi ja Sari Kaasinen Karaokemiksaus ja masterointi Antti Heikkilä<br>
+Kuvitus, leikkaus ja animointi Jussi Sinkkonen | Kuvaus Joonas Gavrilov, Jussi Sinkkonen | Esiintyjät Timoi Munne, Tommi Tiihtarinen<br>
+Kuvaleikkeet Anne Kalliola, Timoi Munne, Arto Rinne | Otteita Häidenvietto Karjalan runomailla -elokuvasta / Kalevala-seura | "Vienan karjalainen kylämaisema Rukajärven suunnalla" / Jänis, Pauli / Historian kuvakokoelma Valokuvaamo Jäniksen kokoelma / Museovirasto<br>
+Kiitos Heikki Liimatalle tuohihatusta!
+  </p>
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+</div>
+
+<!-- 17 -->
+<div class="video-item" id="regipajo">
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+  <div class="song-header">
+    <div class="song-number">17.</div>
+    <h1>Regipajo</h1>
+    <div class="artist">SANTTU KARHU JA TALVISOVAT</div>
+    <div class="credits-line">säv. &amp; san. Santtu Karhu</div>
+  </div>
+  <div class="video-wrapper">
+    <video id="video-regipajo" controls preload="metadata" playsinline>
+      <source src="https://archive.org/download/regipajo/Regipajo.m4v" type="video/mp4">
+    </video>
+  </div>
+  <div class="transponoinnit">
+    <a class="linkkibiisi back-to-menu" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br>
+    🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
+    <span class="transpose-buttons" data-video-id="video-regipajo">
+      <button class="transpose-button" data-src="https://archive.org/download/regipajo/Regipajo-5.m4v">-5</button>
+      <button class="transpose-button" data-src="https://archive.org/download/regipajo/Regipajo-3.m4v">-3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/regipajo/Regipajo-2.m4v">-2</button>
+      <button class="transpose-button active" data-src="https://archive.org/download/regipajo/Regipajo.m4v">0</button>
+      <button class="transpose-button" data-src="https://archive.org/download/regipajo/Regipajo%2B2.m4v">+2</button>
+      <button class="transpose-button" data-src="https://archive.org/download/regipajo/Regipajo%2B3.m4v">+3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/regipajo/Regipajo%2B5.m4v">+5</button>
+    </span>
+    &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
+    <a class="archive-link" href="https://archive.org/details/regipajo" target="_blank" rel="noopener noreferrer">Avaa Internet Archivessa</a>
+  </div>
+  <div class="song-body">
+Laulu on Santtu Karhun suurimpia hittejä ja hänelle aiheeltaan harvinainen rakkauslaulu. Valssin tahdissa keinahteleva kansanlaulumainen Regipajo kertoo kosiomatkasta morsiamen luo hevosen valjastamisesta perille pääsemiseen saakka. Pääosassa ovat talvinen luonto, miestä reessä vetävä hevonen ja matkan aikana ympärillä kuuluvat äänet. Laulajan toiveena on saada morsian itselleen, mutta varmuutta siitä ei ole. Voihan olla, että hän ottaakin paremman sulhasen.
+
+    <div class="divider-symbol">
+      <img src="uhtuan-lintu_punainen_PNG_V3.png" alt="Lintuornamentti">
+    </div>
+
+Pajo on yksi Santtu Karhun enimäl tundiettulois da hänelleh ebätyypilline mielespiendäs sanelii pajo. Val’sin ritmas liekkui, rahvahanpajuo mustoittai Regipajo sanelou starinua kozičusmatkas hevon val’l’astukses perile piäzendäh sah. Pajos piäroulilois ollah talvine luondo, mužikkua ries vedäi hebo da matkan aigua ymbäri kuulujat iänet. Pajattajan toivehennu olis suaja andilahan ičelleh, ga varmuttu sit ei ole. Voibihäi olla, gu neidine iče löydäy paremban sulhazen.
+  </div>
+  <p class="song-footer">
+Karaokesäestys Santtu Karhu | Kuvitus, leikkaus, kuvaus ja animointi Jussi Sinkkonen<br>
+Kuvaleikkeet Inha, I. K. / Suomalaisen Kirjallisuuden Seuran arkisto "reki jäällä Vuokalanjärven Kirveslahdella" / Väisänen, A. O. / Kansatieteen kuvakokoelma / Museovirasto | "rekiajelulla" / Ruotsin ja Pietarin välillä kulkeneen kauppamiehen tai matkailijan (kauppamiehien tai matkailijoiden) luonnoksia ja matkakertomuksia. / Historian kuvakokoelma / Museovirasto<br>
+Kiitokset Kontiolahden Kotiseutukeskus | Taipaleen Ortodoksinen Seurakunta
+  </p>
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+</div>
+
+<!-- 18 -->
+<div class="video-item" id="ruskie-neicyt">
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+  <div class="song-header">
+    <div class="song-number">18.</div>
+    <h1>Ruskie neičyt</h1>
+    <div class="artist">(säestys KarjalaBrihat)</div>
+  </div>
+  <div class="video-wrapper">
+    <video id="video-ruskie-neicyt" controls preload="metadata" playsinline>
+      <source src="https://archive.org/download/ruskie-neicyt/Ruskie.m4v" type="video/mp4">
+    </video>
+  </div>
+  <div class="transponoinnit">
+    <a class="linkkibiisi back-to-menu" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br>
+    🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
+    <span class="transpose-buttons" data-video-id="video-ruskie-neicyt">
+      <button class="transpose-button" data-src="https://archive.org/download/ruskie-neicyt/Ruskie-5.m4v">-5</button>
+      <button class="transpose-button" data-src="https://archive.org/download/ruskie-neicyt/Ruskie-3.m4v">-3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/ruskie-neicyt/Ruskie-2.m4v">-2</button>
+      <button class="transpose-button active" data-src="https://archive.org/download/ruskie-neicyt/Ruskie.m4v">0</button>
+      <button class="transpose-button" data-src="https://archive.org/download/ruskie-neicyt/Ruskie%2B2.m4v">+2</button>
+      <button class="transpose-button" data-src="https://archive.org/download/ruskie-neicyt/Ruskie%2B3.m4v">+3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/ruskie-neicyt/Ruskie%2B5.m4v">+5</button>
+    </span>
+    &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
+    <a class="archive-link" href="https://archive.org/details/ruskie-neicyt" target="_blank" rel="noopener noreferrer">Avaa Internet Archivessa</a>
+  </div>
+  <div class="song-body">
+Alunperin venäläinen, karjalaksikin kääntynyt kansanlaulu ”Ruskie neičyt, valgie neičyt” tunnetaan Suomessa useiden eri esittäjien versioina. Alun perin laulu tuli tunnetuksi radiosoitossa Heli Keinosen 1966 levyttämänä versiona. Lisäksi laulu on tullut tutuksi Katriina Honkasen esittämänä sovituksena Soi soitto soi -ohjelmassa vuonna 1996. Värttinä levytti oman tunnetun versionsa vuonna 1987 Sari Kaasisen sovituksella, joka sittemmin on kuulunut Värttinän ohjelmistoon.
+Laulussa neidot odottavat kosijoita saapuvaksi ja nopeatempoinen laulu kuvaa hyvin malttamattoman odotuksen tunnelmaa. Laulussa korostuu kestitsemisen teema, pohditaan mitä kosijoille syötetään ja juotetaan. Perinneruoat ja vieraanvaraisuus ovatkin avainasemassa; piirakat, juomat ja hyvät petipaikat valmistellaan, samalla myös pohditaan, kuka keneenkin on mieltynyt. Tie sydämeen kulkee vatsan kautta, sanotaan.
+
+    <div class="divider-symbol">
+      <img src="uhtuan-lintu_punainen_PNG_V3.png" alt="Lintuornamentti">
+    </div>
+
+Allun perin ven’alane, karjalaksigi kiännetty rahvahanpajo ”Ruskie neičyt, valgie neičyt” on Suomessa tundiettu monen eri pajattajan versienä. Enzimäzen kerran pajo tuli tundietuksi radivossa Heli Keinozen iänitettynä versienä. Lizäksi pajo on tullun tuttavaksi Katriina Honkazen ezitettynä sovituksena Soi soitto soi -programmassa vuodena 1996. Värttinä iänitti oman tundietun versien vuodena 1987 Sari Kaasizen luajittuna sovituksena, kumbane myöhembäh on kuulun Värttinän ohjelmistoh.
+Pajossa neidizet vuotetah koziččijoi, da näbietempone pajo kuvuau heijän tirppamatoinda vuotandua. Pajossa painottuu gostittamizen tiema, duumaijah midä koziččijoilla syötetäh da juotetah. Perindehellizet syömizet da gost’ien hyvinpiendä ollah keskehizet dielot; varussetah piiruat, juomizet da hyvät magavosijat da yhellä kerdua duumaijah i sidä, ken keneh on mieldyn. Muga sanotahgi, što tie sydämeh mänöy vačan kautti.
+  </div>
+  <p class="song-footer">
+Karaokesäestys KarjalaBrihat | Heikki Kuikka - kitara, taustalaulu | Pentti Mäkkeli - taustalaulu | Pekka Jolkkonen - haitari | Miika Mustonen - rummut | Äänittänyt, miksannut ja masteroinut Antti Heikkilä<br>
+Kuvitus, leikkaus, kuvaus ja animointi Jussi Sinkkonen<br>
+Kuvaleikkeet<br>
+"kaksi karjalaista tyttöä kansanpuvuissaan" / Inha, I. K. / Historian kuvakokoelma, Matkailun edistämiskeskuksen kokoelma / Museovirasto | "avattu kalakukko" / Inha, I. K. / Suomalais-ugrilainen kuvakokoelma / Museovirasto | Taru Korhonen / Hellasta Itään | Karaoke karjalakse -kuvakilpailu Elisa Ihalainen, Varpu Kurkilahti | Otteita Häidenvietto Karjalan runomailla -elokuvasta / Kalevala-seura<br>
+Kiitokset Heikki Ovaskainen / Murtovaaran talomuseo<br>
+Ritva Miettinen / Itä-Suomen Liikuntaopisto
+  </p>
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+</div>
+
+<!-- 19 -->
+<div class="video-item" id="soutelemma-joutelemma">
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+  <div class="song-header">
+    <div class="song-number">19.</div>
+    <h1>Soutelemma joutelemma</h1>
+    <div class="artist">SATTUMA</div>
+    <div class="credits-line">säv. Arto Rinne, san. trad. / Arto Rinne</div>
+  </div>
+  <div class="video-wrapper">
+    <video id="video-soutelemma-joutelemma" controls preload="metadata" playsinline>
+      <source src="https://archive.org/download/soutelemma/Soutelemma.m4v" type="video/mp4">
+    </video>
+  </div>
+  <div class="transponoinnit">
+    <a class="linkkibiisi back-to-menu" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br>
+    🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
+    <span class="transpose-buttons" data-video-id="video-soutelemma-joutelemma">
+      <button class="transpose-button" data-src="https://archive.org/download/soutelemma/Soutelemma-5.m4v">-5</button>
+      <button class="transpose-button" data-src="https://archive.org/download/soutelemma/Soutelemma-3.m4v">-3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/soutelemma/Soutelemma-2.m4v">-2</button>
+      <button class="transpose-button active" data-src="https://archive.org/download/soutelemma/Soutelemma.m4v">0</button>
+      <button class="transpose-button" data-src="https://archive.org/download/soutelemma/Soutelemma%2B2.m4v">+2</button>
+      <button class="transpose-button" data-src="https://archive.org/download/soutelemma/Soutelemma%2B3.m4v">+3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/soutelemma/Soutelemma%2B5.m4v">+5</button>
+    </span>
+    &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
+    <a class="archive-link" href="https://archive.org/details/soutelemma" target="_blank" rel="noopener noreferrer">Avaa Internet Archivessa</a>
+  </div>
+  <div class="song-body">
+Sattuma-yhtye oli esiintymässä vuonna 2008 Vienan Karjalassa Jyskyjärven kyläjuhlassa. Laulaja Arto Rinne sai kuulla siellä vienalaista joikua ja pääsi osallistumaan satumaisen kauniilla Tsirkka-Kemin joella soutukilpailuun. Tunnelmat jäivät vaikuttamaan niin vahvasti, että siitä syntyi Sattuma-yhtyeelle kalevalamittainen soutelulaulu. Laulun teema on tuttu ja tunnettu jo Kalevalasta, minkä ensimmäisessä runossa kerrotaan: “Lyökämäi käsi kätehe,šormet šormijen lomahaks”, kuten Kalevalan vienan karjalan kielisessä tekstissä sanotaan. Myöhemmin “soutelu” tuli tutuksi myös I.K.Inhan valokuvien kautta, missä runonlaulajat kuvataan asettuneina istumaan vastapäätä toisiaan, kasvokkain, toisiaan käsistä pitäen. Asento on alunperin ilmeisesti ollut vierekkäin istumista ja kädestä pitäminen on kuulunut laulutilanteeseen. Kuitenkin I.K. Inhan kuvaama “vastakkain soutelu” tiedetään lavastetuksi, vaikka se edelleen esiintyy usein kuvauksena runolaulun esittämisestä.
+
+    <div class="divider-symbol">
+      <img src="uhtuan-lintu_punainen_PNG_V3.png" alt="Lintuornamentti">
+    </div>
+
+Sattuma-yhtyveh oli esittämäššä vuotena 2008 Vienan Karjalašša Jyškyjärven pruašniekašša. Laulaja Arto Rinne šai kuulla šielä vienalaista joikuo ta piäsi ošallistumah šuarnamaisen kaunehella Čirkka-Kemin jovella šoutuvenehkisah. Tunneh jäi vaikuttamah niin voimallisešti, jotta šiitä šynty Sattuma-yhtyvehellä kalevalamittaini šoutelelenta laulu. Laulun aihe on tuttu ta tunnettu jo Kalevalašta, kumpasen enšimmäisen runošša kerrotah: “Lyökämäi käsi kätehe, šormet šormijen lomahaks”, niin kuin Kalevalan runošša vienankarjalakši šanotah. Myöhemmin ”šoutelenta” tuli tutukši niise I.K. Inhan valokuvien kautti, kumpasišša runonlaulajat kuvatah istumašša vaššakkah toini toista kiäštä pityän. Alušša ašento on tiettäväšti ollun vierekkäh istumini ta kiästä pitämini on kuulun laulutilanteheh. Kuitenki I.K. Inhan kuvuaja “ vaššakkah šoutelenta” tiijetäh lavaššukšekši, vaikka rikeneh še iellähki esiintyy kuvaukšena runonlaulun esittämiseštä.
+  </div>
+  <p class="song-footer">
+Karaokesäestys uudelleenmiksattu albumilta Kinofilmi (2010)<br>
+Arto Rinne - bouzuki, mandoliini | Dmitri “Dima” Djomin - puhaltimet | Eila Rinne - viulu Vladislav Djomin - viulu | Artjom Undalov - basso | Petr Vaslijev - rummut<br>
+Emmi Kuittinen - joiku<br>
+Alkuperäinen miksaus Dmitry Cherevko, masterointi Alex Rosen<br>
+Tuottanut Arto Rinne, Dmitry Djomin, Dmitry Cherevko<br>
+Kuvitus, leikkaus ja animointi Jussi Sinkkonen | Kuvaus Jussi Sinkkonen, Joonas Gavrilov<br>
+Esiintyjät Anni Laine, Taneli Arosara | Kuvausjärjestäjä Eveliina Pilke / Motora<br>
+Kuvaleikkeet Inha, I. K. / Suomalaisen Kirjallisuuden Seuran arkisto<br>
+Kiitokset Eveliina Pilke / Motora
+  </p>
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+</div>
+
+<!-- 20 -->
+<div class="video-item" id="suvi-karjal">
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+  <div class="song-header">
+    <div class="song-number">20.</div>
+    <h1>Suvi-Karjal</h1>
+    <div class="artist">(Pohjois-Karjala - säestys Rälläkkä)</div>
+    <div class="credits-line">säv. &amp; san. Gösta Sundqvist, karj. kiel. sanat Timoi Munne &amp; Santtu Karhu</div>
+  </div>
+  <div class="video-wrapper">
+    <video id="video-suvi-karjal" controls preload="metadata" playsinline>
+      <source src="https://archive.org/download/suvikarjal/Suvikarjal.m4v" type="video/mp4">
+    </video>
+  </div>
+  <div class="transponoinnit">
+    <a class="linkkibiisi back-to-menu" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br>
+    🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
+    <span class="transpose-buttons" data-video-id="video-suvi-karjal">
+      <button class="transpose-button" data-src="https://archive.org/download/suvikarjal/Suvikarjal-5.m4v">-5</button>
+      <button class="transpose-button" data-src="https://archive.org/download/suvikarjal/Suvikarjal-3.m4v">-3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/suvikarjal/Suvikarjal-2.m4v">-2</button>
+      <button class="transpose-button active" data-src="https://archive.org/download/suvikarjal/Suvikarjal.m4v">0</button>
+      <button class="transpose-button" data-src="https://archive.org/download/suvikarjal/Suvikarjal%2B2.m4v">+2</button>
+      <button class="transpose-button" data-src="https://archive.org/download/suvikarjal/Suvikarjal%2B3.m4v">+3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/suvikarjal/Suvikarjal%2B5.m4v">+5</button>
+    </span>
+    &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
+    <a class="archive-link" href="https://archive.org/details/suvikarjal" target="_blank" rel="noopener noreferrer">Avaa Internet Archivessa</a>
+  </div>
+  <div class="song-body">
+Leevi &amp; the Leavings -yhtyeen Pohjois-Karjala on karjalaisaiheinen surumielisen huumorin klassikko. Elämänsä valttikortit hukannut mies koittaa sinnikkäästi tavoittaa naistaan, vaikka eväät ovat heikonlaiset. Jos ei tärppää, niin sitten lähdetään Karjalan kaljamaille. Tännehän sitä kannattaa naisiin tulla, toteaisi Simpauttajan Ottokin. Tämä ralli raikaa taatusti itselaulutilaisuuksissa kaikkialla kautta Suomen. Joten ei muuta kuin juon kaljaa verkkarihousuun.
+Kerrotaan, että tämän kappaleen karjalaksi kääntäneet Santtu Karhu ja Timoi Munne olisivat viettäneet Petroskoissa niinsanotun kovan päivän illan. Seuraavan päivän pohmeloissa he olivat keksineet virkistystä apeille mielilleen ja käyneet käännöstyöhön. Se tehtiinkin kaikella perusteellisuudella tinkimättä tippaakaan alkuperäisen tekstin ydinsanomasta. Se poikkeus oli tosin tehtävä, että kun Santtu lähtee Petroskoista sukunsa kotikyliin, hän suuntaa pohjoisen sijaan etelään. Kun käännös lopulta valmistui, kielimiehet olivat laulun kaltaisia, rehdissä humalassa.
+
+    <div class="divider-symbol">
+      <img src="uhtuan-lintu_punainen_PNG_V3.png" alt="Lintuornamentti">
+    </div>
+
+Leevi &amp; the Leavings -ansambl’an Suvi-Karjal on karjalažuoh liittyi abeimielizen juumoran klassiekku. Oman eloksen čurakujazel kulgii mužikku lujah opittelou löydiä omua naistu, ga häi ei ole ečindäs ylen ozakas. Ei löydyne mučoidu, no sit häi lähtöy Karjalan vuassumuale. Tännehäi tiettävy on kaikis paras lähtie naistu eččimäh tulla, sanos Simpauttajan Ottogi. Tämä pajo varmah bauhuou kaikenmoizis pajopidolois ymbäri Suomen. Ollet valmehennu, sit juot vai piivuo pakundassah.
+Erähät sanotah, gu karjalankielizen pajon kiändäjät Santtu Karhu da Timoi Munne oldih pietty Petroskoil mostu ”jygien ruadopäivän ildua”. Huondeksel pohmel’l’as hyö tahtottih parandua abiedu mieldy da otettihes kiännösruadoloih. Pajokiännösty luajittih putilleh da tekstan alguperästy sanomua tahtottih tarkazeh vardoija. Eräs muutos tekstah yhtelläh rodih: lähtenöy Santtu Petroskoilpäi oman rodn’an kodirandah, ei häi suundavu pohjazeh, a suveh. Konzu kiännös jälgimäi suadih valmehekse, oldih kieliniekat kui pajosgi – toven viinupäis.
+  </div>
+  <p class="song-footer">
+Karaokesäestys Rälläkkä | Marko Kotilainen - harmonikka | Piritta Gröhn - viulu<br>
+Niko Pentikäinen - kielisoittimet | Tuomo Jukkala - basso | Jussi Kukkonen - perkussiot Sovittanut Marko Kotilainen | Äänittänyt, miksannut ja masteroinut Antti Heikkilä<br>
+Kuvitus, leikkaus, kuvaus ja animointi Jussi Sinkkonen | Esiintyjä Jehki Potkonen<br>
+Kuvaleikkeet Heta Nevalainen | Kiitokset Juha Malinen
+  </p>
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+</div>
+
+<!-- 21 -->
+<div class="video-item" id="tietoi-karjalas">
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+  <div class="song-header">
+    <div class="song-number">21.</div>
+    <h1>Tietoi Karjalas</h1>
+    <div class="artist">(Heili Karjalasta - säestys KarjalaBrihat)</div>
+    <div class="credits-line">säv. Georg Malmstén, san. R.R. Ryynänen, karj. san. Eero Mäkkeli</div>
+  </div>
+  <div class="video-wrapper">
+    <video id="video-tietoi-karjalas" controls preload="metadata" playsinline>
+      <source src="https://archive.org/download/tietoi/Tietoi.m4v" type="video/mp4">
+    </video>
+  </div>
+  <div class="transponoinnit">
+    <a class="linkkibiisi back-to-menu" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br>
+    🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
+    <span class="transpose-buttons" data-video-id="video-tietoi-karjalas">
+      <button class="transpose-button" data-src="https://archive.org/download/tietoi/Tietoi-5.m4v">-5</button>
+      <button class="transpose-button" data-src="https://archive.org/download/tietoi/Tietoi-3.m4v">-3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/tietoi/Tietoi-2.m4v">-2</button>
+      <button class="transpose-button active" data-src="https://archive.org/download/tietoi/Tietoi.m4v">0</button>
+      <button class="transpose-button" data-src="https://archive.org/download/tietoi/Tietoi%2B2.m4v">+2</button>
+      <button class="transpose-button" data-src="https://archive.org/download/tietoi/Tietoi%2B3.m4v">+3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/tietoi/Tietoi%2B5.m4v">+5</button>
+    </span>
+    &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
+    <a class="archive-link" href="https://archive.org/details/tietoi" target="_blank" rel="noopener noreferrer">Avaa Internet Archivessa</a>
+  </div>
+  <div class="song-body">
+Georg Malmstenin vuonna 1938 säveltämä ja levyttämä Heili Karjalasta on Karjala-aiheinen ikivihreä iskelmä. Roine Ryynäsen tekstissä se rakkain löytyy Karjalasta. Sinne hänen luokseen on palattava. Suomenruotsalaista ja venäläistä sukujuurta ollut Malmsten kertoi saaneensa laulun aiheen kesälomallaan saaressa lähellä Viipuria. Ennustukseksi hän koki jälkeenpäin laulun toisen säkeen alun: Vaan en saanutkaan tuonne onnelaan jäädä – täytyi jälleen rientää kauas pois. Karjalankielisen version tästä reippaasta laulusta teki Eero Mäkkeli.
+
+    <div class="divider-symbol">
+      <img src="uhtuan-lintu_punainen_PNG_V3.png" alt="Lintuornamentti">
+    </div>
+
+Georg Malmsténin vuvvennu 1938 säveldetty da diskale pajatettu Tietoi Karjalas on tundiettu da mieleh painui pajo, kus pajatetah Karjalah näh. Roine Ryynäzen tekstas se armahin löydyy Karjalas. Sinne hänellyö pidäy mennä järilleh. Malmsténin juuret ollah suomenruoččilazet da ven’alazet, da häi kerdoi, što pajon ideju lähti rodivumah kezälomal suarel lähäl Viiburii. Jällespäi tundui buitegu ennustuksel pajon toizen vuitin algu: “Vaan kui kävi täs - lähtee Karjalas pidi minun lähtee matkah loitoh pois”. Tämän ravien pajon karjalankielizen versien on luadinuh Eero Mäkkeli.
+  </div>
+  <p class="song-footer">
+Karaokesäestys KarjalaBrihat Heikki Kuikka - kitara, taustalaulu | Pentti Mäkkeli - taustalaulu | Pekka Jolkkonen - haitari | Miika Mustonen - rummut | Äänittänyt, miksannut ja masteroinut Antti Heikkilä<br>
+Kuvitus, leikkaus, kuvaus ja animointi Jussi Sinkkonen | Esiintyjät Emilia Sillanpää, Tommi Tiihtarinen | Kuvausjärjestäjä Timoi Munne | Intron kuva Pia Paananen<br>
+Kiitokset Irma ja Kalevi Munne
+  </p>
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+</div>
+
+<!-- 22 -->
+<div class="video-item" id="urai-matkuniekka">
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+  <div class="song-header">
+    <div class="song-number">22.</div>
+    <h1>Urai matkuniekka</h1>
+    <div class="artist">HANNU BRELO</div>
+    <div class="credits-line">säv. &amp; san. Hannu Brelo</div>
+  </div>
+  <div class="video-wrapper">
+    <video id="video-urai-matkuniekka" controls preload="metadata" playsinline>
+      <source src="https://archive.org/download/urai-matkuniekka/Urai.m4v" type="video/mp4">
+    </video>
+  </div>
+  <div class="transponoinnit">
+    <a class="linkkibiisi back-to-menu" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br>
+    🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
+    <span class="transpose-buttons" data-video-id="video-urai-matkuniekka">
+      <button class="transpose-button" data-src="https://archive.org/download/urai-matkuniekka/Urai-5.m4v">-5</button>
+      <button class="transpose-button" data-src="https://archive.org/download/urai-matkuniekka/Urai-3.m4v">-3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/urai-matkuniekka/Urai-2.m4v">-2</button>
+      <button class="transpose-button active" data-src="https://archive.org/download/urai-matkuniekka/Urai.m4v">0</button>
+      <button class="transpose-button" data-src="https://archive.org/download/urai-matkuniekka/Urai%2B2.m4v">+2</button>
+      <button class="transpose-button" data-src="https://archive.org/download/urai-matkuniekka/Urai%2B3.m4v">+3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/urai-matkuniekka/Urai%2B5.m4v">+5</button>
+    </span>
+    &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
+    <a class="archive-link" href="https://archive.org/details/urai-matkuniekka" target="_blank" rel="noopener noreferrer">Avaa Internet Archivessa</a>
+  </div>
+  <div class="song-body">
+Hannu Brelo (1953-2012) oli juukalainen laulaja ja lauluntekijä. Hänen vanhempansa olivat kotoisin Suojärven Hyrsylänmutkasta, Hautavaaran kylästä. Hannu kantoi verenperintöään kunnialla ja teki merkittävän karjalaisen ja karjalankielisen muusikon uran.
+Toisin kuin monet muut karjalankielisiä lauluja esittävät tahot, Brelo ei tyytynyt vain perinteisten laulujen toistamiseen. Hän sävelsi ja sanoitti itse koko joukon myös omia lauluja. Brelo julkaisi viisi cd-albumia ja oli yhdessä haitaristi Mika Tarkkosen kanssa tuttu näky Karjala-henkisissä tapahtumissa.
+Urai matkuniekassa kaheli kulkuri taivaltaa laukkukaupalla riehakkain mielin. Käy taloissa ja yöpyy, tarjoaa ostettavaa ja vilkuilee tyttäret siinä samalla.
+
+    <div class="divider-symbol">
+      <img src="uhtuan-lintu_punainen_PNG_V3.png" alt="Lintuornamentti">
+    </div>
+
+Hannu Brelo (1953–2012) oli juugalane pajattaja da pajoloin luadija. Hänen vanhemmat oldih roduzin Suojärven Hyrzylästä, Haudavuaran kylästä. Hannu kunnivoitti oman suvun karjalaista perindyö da ruado suuren eloksenruavon karjalazena da karjalankielizenä muzikanttana.
+Toizin kuin monet muut karjalankielizien pajoloin pajattajat, Brelo ei tahton vain pajattua perindehellizie pajoloi uuvestah da uuvestah. Hiän säveldi da sanotti kogo joukon omiegi pajoloi. Brelo julgai viizi cd-al’bomua, da yhessä tal’l’ankansoittajan Mika Tarkkozen kera hiän oli tuttava nägy Karjalah liittyjissä tapahtumissa.
+Urai matkuniekassa urua vallatoin kulgija kävelöy torguniekkana, mänöy taloloih yöččyh, tariččou ossettavua da siinä yhellä kerdua kaččelou taloloin tyttäriegi.
+  </div>
+  <p class="song-footer">
+Karaokesäestys uudelleenmiksattu albumilta Urai Matkuniekka (2004)<br>
+Mika Tarkkonen - haitari | Juha Luoma - basso | Mikael Kienokoski - rummut | Jaakko Kääriäinen - kitara | Iivo Brelo - tinapilli (karaokesäestys)<br>
+Sovittanut Mika Tarkkonen | Masteroinut JP Mönkkönen | Tuottanut Hannu Brelo<br>
+Äänittänyt ja miksannut Mika Tarkkonen | Karaokemiksaus Jussi Sinkkonen<br>
+Kuvitus, leikkaus ja animointi Jussi Sinkkonen | Kuvaus Jussi Sinkkonen, Joonas Gavrilov | Esiintyjä Tommi Tiihtarinen<br>
+Kuvaleikkeet Urai Matkuniekka CD (Hannu Brelo 2004)<br>
+Kiitokset<br>
+Katju Brelo | Kulttuuritehdas Siihtala
+  </p>
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+</div>
+
+<!-- 23 -->
+<div class="video-item" id="valgei-vallys">
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+  <div class="song-header">
+    <div class="song-number">23.</div>
+    <h1>Valgei vällys</h1>
+    <div class="artist">SANTTU KARHU JA TALVISOVAT</div>
+    <div class="credits-line">säv. &amp; san. Santtu Karhu</div>
+  </div>
+  <div class="video-wrapper">
+    <video id="video-valgei-vallys" controls preload="metadata" playsinline>
+      <source src="https://archive.org/download/valgei/Valgei.m4v" type="video/mp4">
+    </video>
+  </div>
+  <div class="transponoinnit">
+    <a class="linkkibiisi back-to-menu" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br>
+    🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
+    <span class="transpose-buttons" data-video-id="video-valgei-vallys">
+      <button class="transpose-button" data-src="https://archive.org/download/valgei/Valgei-5.m4v">-5</button>
+      <button class="transpose-button" data-src="https://archive.org/download/valgei/Valgei-3.m4v">-3</button>
+      <button class="transpose-button" data-src="https://archive.org/download/valgei/Valgei-2.m4v">-2</button>
+      <button class="transpose-button active" data-src="https://archive.org/download/valgei/Valgei.m4v">0</button>
+      <button class="transpose-button" data-src="https://archive.org/download/valgei/Valgei%2B2.m4v">+2</button>
+      <button class="transpose-button" data-src="https://archive.org/download/valgei/Valgei%2B3.m4v">+3</button>
+    </span>
+    &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
+    <a class="archive-link" href="https://archive.org/details/valgei" target="_blank" rel="noopener noreferrer">Avaa Internet Archivessa</a>
+  </div>
+  <div class="song-body">
+Valgei vällys (Valoisa vapaus) on herkästi toteutettu ja pehmeästi laulettu surumielinen mutta voimakkaan ristiriidan sisältävä laulu. Teksti on hyvin kuvainnollinen kuten monet Karhun tekstit. Laulun minä ottaa kansalta ja myy sen saadakseen omaa hyötyä. Hän kuvaa saaneensa vähän viisautta, mutta joutuneensa silti selittelijän rooliin. Kertosäkeessä hän toteaa itsensä onnettomaksi, voimattomaksi ja hulluksi. Hän on myynyt oman maansa, mutta siitä ei lopulta koidu mitään hyvää.
+
+    <div class="divider-symbol">
+      <img src="uhtuan-lintu_punainen_PNG_V3.png" alt="Lintuornamentti">
+    </div>
+
+Valgei vällys on herkäh todevutettu da pehmiesti pajatettu atkalmieline pajo, ga moine pajo, kuduah kuuluu lujua risturiidua. Tekstu on ylen čomakuvalline kui äijät Karhun tekstat. Pajon minä ottau rahvahalpäi da myöy sen suadavakse omua hyödyy. Häi sanelou, gu on suannuh vähäzen viizahuttu, ga on joudunuh yksikai sellittijän roulih. Kerdosanois häi huomuau, gu on gor’aššu, voimatoi da habakari. Häi on myönnyh oman muan, ga sit ei lopukse roi nimidä hyviä.
+  </div>
+  <p class="song-footer">
+Karaokesäestys uudelleenmiksattu albumilta Allus oli muna (2009)<br>
+Santtu Karhu - steel-kitara, koskettimet, melodica, laulu | Feodor Astashov - kitara<br>
+Artjom Undalov - basso | Andrei Lukin - rummut | Sovittanut Santtu Karhu &amp; Talvisovat<br>
+Äänittänyt ja miksannut Pentti Dassum | Tuottanut Kosmosmilitsii<br>
+Karaokemiksaus ja masterointi Pentti Dassum<br>
+Kuvitus, leikkaus, kuvaus ja animointi Jussi Sinkkonen | Esiintyjä Tommi Tiihtarinen<br>
+Kuvaleikkeet Jussi Virratvuori, Timoi Munne | Bändikuvat Vasili Petuhov<br>
+Otteita Häidenvietto Karjalan runomailla -elokuvasta / Kalevala-seura<br>
+Kiitokset Kulttuuritehdas Siihtala
+  </p>
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+</div>
+
+<!-- LOPPUTEKSTIT -->
+<div class="video-item" id="lopputekstit">
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+
+  <div class="song-header">
+    <h1>Karaoke Karjalakse</h1>
+  </div>
+
+  <div style="max-width: 1024px; margin: 0 auto; padding: 0 clamp(1rem, 3vw, 2rem); box-sizing: border-box;">
+    <img src="KARAOKE KARJALAKSE_1920x1080.jpg" alt="Karaoke Karjalakse" style="width: 100%; max-width: 996px; height: auto; display: block; margin: 0 auto;">
+  </div>
+
+  <div class="song-footer" style="font-style: normal; margin-top: 2rem;">
+    <strong>“KARAOKE KARJALAKSE”</strong> videot kuvitannuh JUSSI SINKKONEN
+    <br><br>
+    <strong>Kuvuajat / Kuvaajat</strong><br>
+    Jussi Sinkkonen, Joonas Gavrilov (1, 5, 8, 16, 22), Miia Saatsi &amp; Hanna Saatsi (6),<br>
+    Mikko Lauronen (7), Vartan Minosjan (9), Heta Nevalainen (14), Anne Kalliola (16)
+    <br><br>
+    <strong>Ozuttajat / Esiintyjät</strong><br>
+    Tommi Tiihtarinen (2, 14, 16, 18, 21, 22, 23), Leila Örn (12), Niko Saatsi &amp; Mika Saatsi (6), Timoi Munne (16)<br>
+    Emilia Sillanpää (18, 21), Anni Laine &amp; Taneli Arosara (19), Jehki Potkonen (20)
+    <br><br>
+    <strong>Passibot / Kiitokset</strong><br>
+    Jukka Timonen / Suomalaisen Kirjallisuuden Seura | Niina Hämäläinen / Kalevala-seura | Reijo Sihvonen / Uhtua-seura<br>
+    Pekka Suutari, Helka Riionheimo ja Timi Volotinen / Itä-Suomen yliopisto | Markku Halonen / Karjalan Ruusu<br>
+    Heikki Ovaskainen / Murtovaaran talomuseo | Tomi Kervinen / Kulttuuritehdas Siihtala | Irma ja Kalevi Munne<br>
+    Heikki Liimatta / paju- ja tuohityöt, Kontiolahti | Eveliina Pilke / Motora | Ritva Miettinen / Itä-Suomen Liikuntaopisto
+    <br><br>
+    <strong>Kielenkaččomine / Kielentarkistus</strong><br>
+    Olga Karlova, Katerina Paalamo, Natalia Giloeva, Timoi Munne
+    <br><br>
+    <strong>Gruafilline planiiruičendu / Graafinen suunnittelu</strong><br>
+    Joke Leppänen, Jussi Sinkkonen, Raine Rysä<br>
+    'Uhtuan lintu' -logoa karaokevideolla käytetty Uhtua-seuran luvalla, alkuperäisen logon suunnitellut Erik Bruun
+    <br><br>
+    <strong>Pajo-ozuttelut / Kappale-esittelyt</strong><br>
+    Timoi Munne, Dalva Lamminmäki, Pekka Suutari, Niko Saatsi
+    <br><br>
+    <strong>Pajo-ozuttelut karjalakse / Kappale-esittelyt karjalaksi</strong><br>
+    Katerina Paalamo, Johnny Haataja, Heidi Kuosmanen, Elena Rapa, Joona Sutinen, Milla Tynnyrinen, Niko Saatsi
+    <br><br>
+    <strong>Kommentuariikierrokset / Kommenttikierrokset</strong><br>
+    Jani Kuittinen / äänituotanto<br>
+    Anne-Mari Lemmetyinen / visuaalinen tuotanto
+    <br><br>
+    <strong>Iänituotando / Äänituotanto</strong><br>
+    Antti Heikkilä, Teemu Korpipää (5), Pentti Dassum (23)<br>
+    Alex Rozen (2, 19), Grigori Arhipov (2, 3, 10, 12), Antti Uusimäki (6), Ilkka Hämäläinen (6), Mika Tarkkonen (8, 9, 22)<br>
+    Jussi Sinkkonen (9), JP Mönkkönen (8, 9, 22), Hannu Brelo (8, 9, 22), Heini Karjalainen (13), Reima Tuovinen (13)<br>
+    Pauli Saastamoinen (16), Sari Kaasinen (16), Matti Kontio (16), Risto Hemmi (16), Arto Rinne &amp; Dmitry Cherevko &amp; Dmitry Djomin (19)
+    <br><br>
+    <strong>Muzikantat / Muusikot</strong><br>
+    KARJALABRIHAT (4, 7, 14, 21): Heikki Kuikka, Pekka Jolkkonen, Pentti Mäkkeli, Miika Mustonen<br>
+    LOIMOLAN VOIMA (6): Mika Saatsi &amp; Niko Saatsi | FOLKSWAGEN (15): Jari Lappalainen &amp; Joonas Ojajärvi<br>
+    RÄLLÄKKÄ (11, 20): Marko Kotilainen, Piritta Gröhn, Niko Pentikäinen, Tuomo Jukkala, Jussi Kukkonen<br>
+    Santtu Karhu (1, 5, 17, 23), Arto Rinne (2, 16, 19), Dmitri Djomin (2, 16, 19), Vlad Djomin (12, 19), Eila Rinne (2, 12)<br>
+    Artjom Undalov (2, 12, 19, 23), Igor Saharov (2, 12), Petr Vasiljev (19), Emmi Kuittinen (19), Valentina Saburova (3, 10), Sergei Gromov (3, 10)<br>
+    Feodor Astashov (5, 23), Andrei Lukin (23), Mihal Koksharov (5), Arkadi Sokolov (5), Mika Tarkkonen (22), Juha Luoma (8, 9, 22)<br>
+    Jaakko Kääriäinen (8, 9, 22), Mikael Kienokoski (9, 22), Sanna Pölönen (8), Iivo Brelo (8, 22), Julius Heikkilä (13), Ville Rauhala (13)<br>
+    Tom Nekljudow (13), Pekka Suutari (13), Aleksandr Bykadorov (16), Tanja Umnjakova (16), Andrei Varkentin (16), Hanna Järvi (16)
+    <br><br>
+    <strong>Kuvaleikkeet / Fotokuvat da videot</strong><br>
+    Museovirasto, Suomalaisen Kirjallisuuden Seura, Kalevala-seura, Uhtua-seura, Pexels, Jussi Sinkkonen<br>
+    Helka Riionheimo (2), Mikko Sinkkonen (3), Antti Salokannel (4), Vasili Petuhov (5, 23), Olga Karlova (9)<br>
+    Timoi Munne (9, 15, 16, 23), Pia Viherma-Iso-Mustajärvi (9), Reijo Sihvonen (10), Arto Rinne (16), Taru Korhonen (18)<br>
+    Elisa Ihalainen (18), Varpu Kurkilahti (18), Heta Nevalainen (14, 20), Pia Paananen (21), Hannu Brelo (22), Jussi Virratvuori (23)
+    <br><br>
+    <strong>Tuotantoa rahoittivat / Tuotandon ollah finansiiruittu</strong><br>
+    Joensuun seudun Leader -yhdistys, Pohjois-Karjalan tulevaisuusrahasto<br>
+    Karjalan Sivistysseura, Kansan Sivistysrahasto, Viihdeväylä Oy (Feelment®)<br>
+    Karjalan kielen elvytyshanke, humanistinen osasto, Itä-Suomen yliopisto
+    <br><br>
+    <strong>Tuotando / Tuotanto</strong><br>
+    Karelia Folk ry / Parempi Pajot 20-21 -hanke | luadija Jussi Sinkkonen, azientundii Timoi Munne, projektupiälikkö Jari-Pekka Kinnunen
+  </div>
+
+  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+</div>
 
 <footer>
-  © Karaoke Karjalakse — Creative Commons BY-NC-SA 4.0 lisenssillä.  
+  © Karaoke Karjalakse — Creative Commons BY-NC-SA 4.0 lisenssillä.
   Koodi julkaistu MIT-lisenssillä GitHubissa.
-</footer><script>
+</footer>
+
+<script>
 (function () {
   function bindTransposeControls(group) {
     const videoId = group.getAttribute('data-video-id');
@@ -779,5 +1891,7 @@ Kuvaleikkeet “Pekko ja Tomma, Vihtoora Lesosen lapset” / Inha, I. K. / Suoma
 
   document.querySelectorAll('.transpose-buttons').forEach(bindTransposeControls);
 })();
-</script></body>
+</script>
+
+</body>
 </html>
