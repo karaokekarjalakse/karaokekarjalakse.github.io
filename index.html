@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="fi">
+<!DOCTYPE html>
+<html lang="fi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,76 +12,373 @@ body {
   margin: 0;
   padding: 0;
   text-align: center;
-}/* --- Header: logo + otsikko --- */ .site-header { padding: 2rem 1rem; background-color: #000; }
+}
 
-.logo-wrap { max-width: 600px; margin: 0 auto 1.5rem auto; }
+/* --- Header: logo + otsikko --- */
+.site-header {
+  padding: 2rem 1rem;
+  background-color: #000;
+}
 
-.project-logo { width: 100%; height: auto; }
+.logo-wrap {
+  max-width: 600px;
+  margin: 0 auto 1.5rem auto;
+}
 
-/* punainen pääotsikko */ .site-title { font-family: Bahnschrift, "Arial Black", Arial, sans-serif; font-size: 44px; font-weight: 900; color: #ff2020; letter-spacing: 0.05em; text-transform: uppercase; margin: 0; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5); }
+.project-logo {
+  width: 100%;
+  height: auto;
+}
 
-/* --- Jakoviivat --- */ .intro-separator { height: 6px; width: 100%; margin: 0; }
+/* punainen pääotsikko */
+.site-title {
+  font-family: Bahnschrift, "Arial Black", Arial, sans-serif;
+  font-size: 44px;
+  font-weight: 900;
+  color: #ff2020;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
 
-.intro-blue { background-color: #9ad8ff; } .intro-green { background-color: #00aa4f; }
+/* --- Jakoviivat --- */
+.intro-separator {
+  height: 6px;
+  width: 100%;
+  margin: 0;
+}
 
-/* --- Johdantopalkki --- */ .intro-band { background-color: #0b86aa; padding: 2rem 1rem 2.5rem 1rem; }
+.intro-blue { background-color: #9ad8ff; }
+.intro-green { background-color: #00aa4f; }
 
-/* --- Johdantoteksti --- */ .intro-text { max-width: 820px; margin: 0 auto; text-align: center; font-family: "Bahnschrift", "Arial Black", Arial, sans-serif; font-size: 20px; font-weight: 700; line-height: 1.8em; color: #ffffff; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.55); } .intro-text p { margin: 0 0 1.2rem 0; }
+/* --- Johdantopalkki --- */
+.intro-band {
+  background-color: #0b86aa;
+  padding: 2rem 1rem 2.5rem 1rem;
+}
 
-.intro-symbol { font-size: 26px; color: #ff2020; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); margin: 0.6rem 0 1rem 0; }
+/* --- Johdantoteksti --- */
+.intro-text {
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Bahnschrift", "Arial Black", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.8em;
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.55);
+}
+.intro-text p { margin: 0 0 1.2rem 0; }
 
-.intro-production { font-family: Calibri, Tahoma, Arial, sans-serif; font-size: 16px; font-weight: 600; color: #aee6ff; margin-top: 1.5rem; }
+.intro-symbol {
+  font-size: 26px;
+  color: #ff2020;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  margin: 0.6rem 0 1rem 0;
+}
 
-/* --- Rahoittajat / logot --- */ .supporters { background-color: #fff; color: #000; padding: 1.8rem 1rem 2.2rem 1rem; } .supporters-inner { max-width: 1024px; margin: 0 auto; } .supporters-logos img { max-width: 100%; height: auto; } .supporters-text { font-family: Calibri, Tahoma, Arial, sans-serif; font-size: 16px; margin-top: 1rem; }
+.intro-production {
+  font-family: Calibri, Tahoma, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #aee6ff;
+  margin-top: 1.5rem;
+}
 
-/* --- Lauluvalikko, kahden palstan grid --- */ .song-nav ul { list-style: none; padding: 0; margin: 0 auto; max-width: 1000px;
+/* --- Rahoittajat / logot --- */
+.supporters {
+  background-color: #fff;
+  color: #000;
+  padding: 1.8rem 1rem 2.2rem 1rem;
+}
+.supporters-inner {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+.supporters-logos img {
+  max-width: 100%;
+  height: auto;
+}
+.supporters-text {
+  font-family: Calibri, Tahoma, Arial, sans-serif;
+  font-size: 16px;
+  margin-top: 1rem;
+}
 
-display: grid; grid-template-columns: 1fr;       /* oletuksena yksi palsta / gap: 1.5rem 3rem;                 / rivien ja palstojen väli */ justify-content: center; }
+/* --- Lauluvalikko, kahden palstan grid --- */
+.song-nav {
+  padding: 0 clamp(1rem, 3vw, 2rem);
+  box-sizing: border-box;
+}
 
-.song-nav li { text-align: left; }
+.song-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: 1fr;       /* oletuksena yksi palsta */
+  gap: 1.5rem 3rem;                 /* rivien ja palstojen väli */
+  justify-content: center;
+}
 
-/* numero + biisin nimi (linkki) */ .song-nav-title { display: inline-block; font-family: "Times New Roman", Georgia, serif; font-size: 22px; font-weight: 700; color: #fff; text-decoration: none; line-height: 1.4em; } .song-nav-title:hover { color: #ff4444; }
+.song-nav li {
+  text-align: left;
+}
 
-.song-nav-number { font-weight: 700; margin-right: 0.25em; }
+/* numero + biisin nimi (linkki) */
+.song-nav-title {
+  display: inline-block;
+  font-family: "Times New Roman", Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  line-height: 1.4em;
+}
+.song-nav-title:hover { color: #ff4444; }
 
-/* punainen esittäjä/originaali */ .song-nav-artist { font-family: Bahnschrift, "Arial Black", Arial, sans-serif; font-size: 14px; font-weight: 900; color: #ff2020; margin-left: 1.8rem; }
+.song-nav-number {
+  font-weight: 700;
+  margin-right: 0.25em;
+}
 
-/* pienet sävel-/sanatiedot */ .song-nav-meta { font-family: Calibri, Tahoma, Arial, sans-serif; font-size: 13px; color: #ddd; margin-left: 1.8rem; }
+/* punainen esittäjä/originaali */
+.song-nav-artist {
+  font-family: Bahnschrift, "Arial Black", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  color: #ff2020;
+  margin-left: 1.8rem;
+}
 
-/* --- Video-osio --- */ .video-item { margin: 3rem auto; max-width: 1024px; width: 100%; background-color: #000; border: none; }
+/* pienet sävel-/sanatiedot */
+.song-nav-meta {
+  font-family: Calibri, Tahoma, Arial, sans-serif;
+  font-size: 13px;
+  color: #ddd;
+  margin-left: 1.8rem;
+}
 
-.divider { display: block; width: 100%; max-width: 1024px; height: auto; margin: 0 auto; border: none; }
+/* --- Video-osio --- */
+.video-item {
+  margin: 3rem auto;
+  max-width: 1024px;
+  width: 100%;
+  background-color: #000;
+  border: none;
+}
 
-/* responsiivinen video */ .video-wrapper { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; background-color: #000; } .video-wrapper iframe, .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; } .video-wrapper video { display: block; background-color: #000; }
+.divider {
+  display: block;
+  width: 100%;
+  max-width: 1024px;
+  height: auto;
+  margin: 0 auto;
+  border: none;
+}
 
-/* Transponoinnit-rivi */ .transponoinnit { margin-top: 1rem; line-height: 1.8em; font-family: Bahnschrift, "Arial Black", Arial, sans-serif; border-bottom: 1px solid #fff; padding-bottom: 0.4rem; margin-bottom: 1.2rem; }
+/* responsiivinen video */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  background-color: #000;
+}
+.video-wrapper iframe,
+.video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.video-wrapper video {
+  display: block;
+  background-color: #000;
+}
 
-a:link.linkkibiisi, a:visited.linkkibiisi { color: #fff; text-decoration: none; font-weight: bold; font-size: 20px; transition: all 0.2s ease-in-out; } a:hover.linkkibiisi, a:active.linkkibiisi { color: #ff4444; font-size: 24px; }
+/* Transponoinnit-rivi */
+.transponoinnit {
+  margin-top: 1rem;
+  line-height: 1.8em;
+  font-family: Bahnschrift, "Arial Black", Arial, sans-serif;
+  border-bottom: 1px solid #fff;
+  padding: 0  clamp(1rem, 3vw, 2rem) 0.4rem clamp(1rem, 3vw, 2rem);
+  margin-bottom: 1.2rem;
+  box-sizing: border-box;
+}
 
-/* Kappaleotsikko ja tekijät */ .song-header { text-align: center; background-color: #000; color: #fff; padding: 24px 16px; } .song-header .song-number { font-size: 12px; margin-bottom: 6px; } .song-header h1 { margin: 0; font-family: "Times New Roman", Georgia, serif; font-size: 40px; font-weight: 800; line-height: 1.1; color: #fff; } .song-header .artist { font-family: Bahnschrift, "Arial Black", Arial, sans-serif; font-size: 22px; font-weight: 900; color: #ff2020; margin-top: 12px; letter-spacing: 0.05em; } .song-header .credits-line { font-family: Calibri, Tahoma, Arial, sans-serif; font-size: 14px; font-weight: 400; margin-top: 4px; color: #fff; }
+a:link.linkkibiisi,
+a:visited.linkkibiisi {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  transition: all 0.2s ease-in-out;
+}
+a:hover.linkkibiisi,
+a:active.linkkibiisi {
+  color: #ff4444;
+  font-size: 24px;
+}
 
-/* Tekstit kappaleessa */ .song-body { font-family: Cambria, Georgia, "Times New Roman", serif; font-size: 20px; color: #fff; text-align: left; margin: 16px auto; padding: 0 14px; max-width: 950px; line-height: 1.6em; }
+/* Kappaleotsikko ja tekijät */
+.song-header {
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+  padding: 24px clamp(1rem, 3vw, 2rem);
+  box-sizing: border-box;
+}
+.song-header .song-number {
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.song-header h1 {
+  margin: 0;
+  font-family: "Times New Roman", Georgia, serif;
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #fff;
+}
+.song-header .artist {
+  font-family: Bahnschrift, "Arial Black", Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: #ff2020;
+  margin-top: 12px;
+  letter-spacing: 0.05em;
+}
+.song-header .credits-line {
+  font-family: Calibri, Tahoma, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 4px;
+  color: #fff;
+}
 
-.divider-symbol { text-align: center; margin: 24px 0 12px 0; } .divider-symbol img { display: block; margin: 0 auto; width: 60px; height: auto; }
+/* Tekstit kappaleessa */
+.song-body {
+  font-family: Cambria, Georgia, "Times New Roman", serif;
+  font-size: 20px;
+  color: #fff;
+  text-align: left;
+  margin: 16px auto;
+  padding: 0 clamp(1rem, 3vw, 2rem);
+  max-width: 950px;
+  line-height: 1.6em;
+  box-sizing: border-box;
+}
 
-/* Tekijät kappaleen lopussa */ .song-footer { font-family: Calibri, Tahoma, Arial, sans-serif; font-style: italic; font-size: 14px; color: #ddd; text-align: left; margin: 16px auto; padding: 0 14px; max-width: 950px; line-height: 1.5em; }
+.divider-symbol {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+.divider-symbol img {
+  display: block;
+  margin: 0 auto;
+  width: 60px;
+  height: auto;
+}
 
-.archive-link { display: inline-block; margin-left: 1rem; font-family: Calibri, Tahoma, Arial, sans-serif; font-size: 15px; font-weight: 400; color: #aee6ff; text-decoration: underline; vertical-align: baseline; } .archive-link:hover { color: #ffffff; }
+/* Tekijät kappaleen lopussa */
+.song-footer {
+  font-family: Calibri, Tahoma, Arial, sans-serif;
+  font-style: italic;
+  font-size: 14px;
+  color: #ddd;
+  text-align: left;
+  margin: 16px auto;
+  padding: 0 clamp(1rem, 3vw, 2rem);
+  max-width: 950px;
+  line-height: 1.5em;
+  box-sizing: border-box;
+}
 
-.transpose-buttons { display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem; vertical-align: middle; }
+.archive-link {
+  display: inline-block;
+  margin-left: 1rem;
+  font-family: Calibri, Tahoma, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #aee6ff;
+  text-decoration: underline;
+  vertical-align: baseline;
+}
+.archive-link:hover {
+  color: #ffffff;
+}
 
-.transpose-button { background: transparent; color: #fff; border: 1px solid #fff; font-family: Bahnschrift, "Arial Black", Arial, sans-serif; font-size: 18px; font-weight: 900; padding: 0.2rem 0.7rem; cursor: pointer; transition: all 0.2s ease-in-out; } .transpose-button:hover, .transpose-button:focus { color: #ff4444; border-color: #ff4444; outline: none; } .transpose-button.active { background-color: #ff2020; border-color: #ff2020; color: #fff; }
+.transpose-buttons {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+  vertical-align: middle;
+}
 
-.placeholder-anchor { position: relative; top: -8px; display: block; height: 1px; visibility: hidden; }
+.transpose-button {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  font-family: Bahnschrift, "Arial Black", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  padding: 0.2rem 0.7rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.transpose-button:hover,
+.transpose-button:focus {
+  color: #ff4444;
+  border-color: #ff4444;
+  outline: none;
+}
+.transpose-button.active {
+  background-color: #ff2020;
+  border-color: #ff2020;
+  color: #fff;
+}
 
-/* Footer */ footer { margin-top: 3rem; padding: 1rem; font-size: 0.9em; color: #aaa; border-top: 1px solid #333; font-family: Calibri, Tahoma, Arial, sans-serif; }
+.placeholder-anchor {
+  position: relative;
+  top: -8px;
+  display: block;
+  height: 1px;
+  visibility: hidden;
+}
+
+/* Footer */
+footer {
+  margin-top: 3rem;
+  padding: 1rem;
+  font-size: 0.9em;
+  color: #aaa;
+  border-top: 1px solid #333;
+  font-family: Calibri, Tahoma, Arial, sans-serif;
+}
 
 /* --- Mediaqueries --- */
 
-/* yli 900 px leveillä näytöillä: kaksi palstaa */ @media (min-width: 900px) { .song-nav ul { grid-template-columns: 1fr 1fr; } } </style>
-
+/* yli 900 px leveillä näytöillä: kaksi palstaa */
+@media (min-width: 900px) {
+  .song-nav ul {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+</style>
 </head>
-<body><!-- ---------- HEADER: LOGO + PUNAINEN NIMI ---------- --><header class="site-header" id="top">
+<body>
+
+
+<!-- ---------- HEADER: LOGO + PUNAINEN NIMI ---------- --><header class="site-header" id="top">
   <div class="logo-wrap">
     <!-- VAIHDA src oman logotiedostosi nimeen -->
     <img src="karaoketiahti_logo.png"
@@ -364,8 +662,6 @@ Leikkaus ja animointi Jussi Sinkkonen Kuvaleikkeet "Venehjärveläinen runonlaul
 Historian kuvakokoelma / Museovirasto Otteita Häidenvietto Karjalan runomailla -elokuvasta /
 Kalevala-seura “Thunderstorm” / The Element / pexels.com
   </p>
-
-  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
 </div>
 
 <!-- ---------- 2. Čuuruu ---------- -->
@@ -406,55 +702,19 @@ Kalevala-seura “Thunderstorm” / The Element / pexels.com
     <a class="archive-link" href="https://archive.org/details/cuuruu" target="_blank" rel="noopener noreferrer">Avaa Internet Archivessa</a>
   </div>
 
-  <div class="song-body">
-Čuuruu / SATTUMA<br>
-säv. &amp; san. Arto Rinne
-<br><br>
-Cuuru on perinteinen aunuksenkarjalainen piirileikki
-
-
-<!-- ---------- 2. Čuuruu ---------- --><div class="video-item" id="cuuruu">
-  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">  <div class="song-header">
-    <div class="song-number">2.</div>
-    <h1>Čuuruu</h1>
-    <div class="artist">SATTUMA</div>
-    <div class="credits-line">säv. &amp; san. Arto Rinne</div>
-  </div>  <div class="video-wrapper">
-    <video
-      id="video-cuuruu"
-      controls
-      preload="metadata"
-      playsinline
-      data-default-label="0">
-      <source src="https://archive.org/details/cuuruu/Cuuruu%2B-0.m4v" type="video/mp4">
-      Selaimesi ei tue HTML5-videota.
-    </video>
-  </div>  <div class="transponoinnit">
-    <a class="linkkibiisi" href="#lauluvalikko"><strong>🔴 Takaisin lauluvalikkoon</strong></a><br/>
-    🔴 <i>Transponoinnit:</i>&nbsp;&nbsp;
-    <span class="transpose-buttons" data-video-id="video-cuuruu">
-      <button class="transpose-button" data-src="https://archive.org/details/cuuruu/Cuuruu-5.m4v">-5</button>
-      <button class="transpose-button" data-src="https://archive.org/details/cuuruu/Cuuruu-3.m4v">-3</button>
-      <button class="transpose-button" data-src="https://archive.org/details/cuuruu/Cuuruu-2.m4v">-2</button>
-      <button class="transpose-button active" data-src="https://archive.org/details/cuuruu/Cuuruu%2B-0.m4v">0</button>
-      <button class="transpose-button" data-src="https://archive.org/details/cuuruu/Cuuruu%2B2.m4v">+2</button>
-      <button class="transpose-button" data-src="https://archive.org/details/cuuruu/Cuuruu%2B3.m4v">+3</button>
-      <button class="transpose-button" data-src="https://archive.org/details/cuuruu/Cuuruu%2B5.m4v">+5</button>
-    </span>
-    &nbsp;&nbsp;<i>(puolisävelaskelta)</i>
-    <a class="archive-link" href="https://archive.org/details/cuuruu" target="_blank" rel="noopener noreferrer">Avaa Internet Archivessa</a>
-  </div>  <div class="song-body">
-Čuuruu / SATTUMA<br>
-säv. &amp; san. Arto Rinne
-<br><br>
+<div class="song-body">
 Cuuru on perinteinen aunuksenkarjalainen piirileikki, jota laulettiin akkapellana tanssin säestyksenä. Perusmelodialinja on ihan yksinkertainen, siksi Sattuman versiota sovittaessa sävelsin kertsin ja bridgen. Niihin teki sanat Natalia Antonova Vieljärveltä. Laulu on tytöt/pojat-pilalaulu, mutta se kertoo myös mm karjalaisesta vieraanvaraisuudesta.
-– Arto Rinne (kappaleen säveltäjä)<div class="divider-symbol">
-  <img src="uhtuan-lintu_punainen_PNG_V3.png" alt="Lintuornamentti">
+– Arto Rinne (kappaleen säveltäjä)
+
+    <div class="divider-symbol">
+      <img src="uhtuan-lintu_punainen_PNG_V3.png" alt="Lintuornamentti">
+    </div>
+
+Čuuruu on perindölline anuksenkarjalaine kruugas kižuandu, kuduadu pajatettih ilmai soitindu, da pajattajes pläšittih. Tavalline meloudii on ihan prostoi, sendäh säveldin kerdosanat da bridgen, konzu luajiin Sattuman versien. Sanat niilöih on kirjutannuh Natalia Antonova Vieljärvespäi. Pajo on neidizet/brihat-šuutkupajo, ga se kerdou sežo karjalazes rahmannožuos.
+– Arto Rinne (pajon säveldäi)
 </div>
 
-Čuuruu on perindölline anuksenkarjalaine kruugas kižuandu, kuduadu pajatettih ilmai soitindu, da pajattajes pläšittih. Tavalline meloudii on ihan prostoi, sendäh säveldin kerdosanat da bridgen, konzu luajiin Sattuman versien. Sanat niilöih on kirjutannuh Natalia Antonova Vieljärvespäi. Pajo on neidizet/brihat-šuutkupajo, ga se kerdou sežo karjalazes rahmannožuos. – Arto Rinne (pajon säveldäi)
-
-  </div>  <p class="song-footer">
+<p class="song-footer">
 Karaokesäestys uudelleenmiksattu albumilta Joo kyllä! (2013)<br>
 Arto Rinne – bouzuki | Dmitri Djomin – puhaltimet | Eila Rinne – viulu<br>
 Artjom Undalov – basso | Igor Saharov – rummut
@@ -475,10 +735,9 @@ Gruafilline planiiruičendu / Graafinen suunnittelu<br>
 Joke Leppänen, Jussi Sinkkonen, Raine Rysä<br>
 'Uhtuan lintu' -logoa karaokevideolla käytetty Uhtua-seuran luvalla,<br>
 alkuperäisen logon suunnitellut Erik Bruun
-<br><br>
-Tuotanto<br>
-Karelia Folk ry / Parempi Pajot 20-21
-  </p>  <img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
+</p>
+
+<img src="web_karkar_palkki_V1-1024x53.jpg" alt="Väripalkki" class="divider">
 </div><!-- ---------- Paikkamerkkiankkurit muille kappaleille ---------- --><span id="elamani-kokemuksie" class="placeholder-anchor"></span> <span id="evakon-pajo" class="placeholder-anchor"></span> <span id="hyllatty-ei-ole-hullattu" class="placeholder-anchor"></span> <span id="hyrzyla" class="placeholder-anchor"></span> <span id="kaijasjarves-aija-kalua" class="placeholder-anchor"></span> <span id="karjalan-kumbuzil" class="placeholder-anchor"></span> <span id="karjalani-rahvas" class="placeholder-anchor"></span> <span id="kylyni" class="placeholder-anchor"></span> <span id="kyla-vuotti-uutta-kuuta" class="placeholder-anchor"></span> <span id="maman-kevatpajoine" class="placeholder-anchor"></span> <span id="metrolla-buabon-luo" class="placeholder-anchor"></span> <span id="mina-mustan" class="placeholder-anchor"></span> <span id="oman-muan-tuli" class="placeholder-anchor"></span> <span id="petroskoi" class="placeholder-anchor"></span> <span id="regipajo" class="placeholder-anchor"></span> <span id="ruskie-neicyt" class="placeholder-anchor"></span> <span id="soutelemma-joutelemma" class="placeholder-anchor"></span> <span id="suvi-karjal" class="placeholder-anchor"></span> <span id="tietoi-karjalas" class="placeholder-anchor"></span> <span id="urai-matkuniekka" class="placeholder-anchor"></span> <span id="valgei-vallys" class="placeholder-anchor"></span>
 
 <footer>
